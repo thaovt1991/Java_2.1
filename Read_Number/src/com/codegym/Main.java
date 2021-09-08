@@ -138,7 +138,7 @@ public class Main {
                 readD = read10_19(dozens);
             } else {
                 if (ones != 0) {
-                    readD =  readOnes(ones);
+                    readD = "zero "+ readOnes(ones);
                 }
             }
         }
