@@ -70,7 +70,7 @@ public class Main {
                 break;
             }
             case 5:
-                str = "fixteen";
+                str = "fifteen";
                 break;
             case 4:
             case 6:
@@ -106,42 +106,54 @@ public class Main {
         }
         return str ;
     }
+    public static String readNumber(int a){
 
-
-    public static void main(String[] args) {
-	     short weight ;
-	     Scanner scanner = new Scanner(System.in);
-         System.out.print("Input weight: ");
-	     weight = scanner.nextShort();
-         int hundred =  weight  /  100 ;
-         int dozens  = weight % 100 ;
-         int ones = weight % 10 ;
-        String readH ="";
-        String readD ="";
+        int hundred =  a  /  100 ;
+        int dozens  = a % 100 ;
+        int ones = a % 10 ;
+        String readNumber ="";
 
         if (hundred != 0) {
-            if (weight % 100 == 0) {
-                readH = readOnes(hundred) + " hundred";
+            if (a % 100 == 0) {
+                readNumber = readOnes(hundred) + " hundred";
             } else {
-                readH = readOnes(hundred) + " hundred and ";
+                readNumber = readOnes(hundred) + " hundred and ";
             }
         }
 
         if(dozens >= 20){
             if (ones != 0) {
-            readD = readGreater20(  dozens/ 10 )+ " " + readOnes(ones) ;
+                readNumber += readGreater20(  dozens/ 10 )+ " " + readOnes(ones) ;
             }else
-                readD = readGreater20(  dozens/ 10 ) ;
+                readNumber += readGreater20(  dozens/ 10 ) ;
         }else  {
-                if (dozens >= 10) {
-                   readD = read10_19(dozens % 10);
-                 } else {
+            if (dozens >= 10) {
+                readNumber += read10_19(dozens % 10);
+            } else {
                 if (ones != 0) {
-                    readD =  readOnes(ones);
+                    readNumber +=  readOnes(ones);
                 }
             }
         }
-            System.out.print(weight + " read is '" + readH + readD + "' kg ");
+        return readNumber ;
+    }
+
+
+
+
+    public static void main(String[] args) {
+        short weight, height;
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Input your weight : ");
+        weight = scanner.nextShort();
+        String readWeight = readNumber(weight);
+        System.out.print("Input your height : ");
+        height = scanner.nextShort();
+        String readHeight = readNumber(height);
+        System.out.printf("Your weight is '%s' kg and your height is '%s' centimeter ",readWeight,readHeight );
     }
 }
+
+
+
 
