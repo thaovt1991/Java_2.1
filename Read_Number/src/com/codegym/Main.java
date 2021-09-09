@@ -53,30 +53,31 @@ public class Main {
     public  static String read10_19(int a) {
         String str = "" ;
         switch (a) {
-            case 10: {
+            case 0: {
                 str = "ten";
                 break;
             }
-            case 11: {
+            case 1: {
                 str = "eleven";
                 break;
             }
-            case 12: {
+            case 2: {
                 str = "twelve";
                 break;
             }
-            case 13: {
+            case 3: {
                 str = "thirteen";
                 break;
             }
-            case 14:
-            case 15:
-            case 16:
-            case 17:
-            case 18:
-            case 19:{
-                int mod = a % 10 ;
-                str = readOnes(mod) + "teen"  ;
+            case 5:
+                str = "fixteen";
+                break;
+            case 4:
+            case 6:
+            case 7:
+            case 8:
+            case 9:{
+                str = readOnes(a) + "teen"  ;
                 break;
             }
         }
@@ -91,12 +92,10 @@ public class Main {
             case 3 :
                 str = "thirty";
                 break;
+            case 5 :
+                str = "fixty";
+                break;
             case 4 :
-                str = "forty";
-                break;
-            case 5:
-                str = "fifty";
-                break;
             case 6 :
             case 7 :
             case 8 :
@@ -133,12 +132,12 @@ public class Main {
             readD = readGreater20(  dozens/ 10 )+ " " + readOnes(ones) ;
             }else
                 readD = readGreater20(  dozens/ 10 ) ;
-        }else {
-            if (dozens >= 10) {
-                readD = read10_19(dozens);
-            } else {
+        }else  {
+                if (dozens >= 10) {
+                   readD = read10_19(dozens % 10);
+                 } else {
                 if (ones != 0) {
-                    readD = "zero "+ readOnes(ones);
+                    readD =  readOnes(ones);
                 }
             }
         }
