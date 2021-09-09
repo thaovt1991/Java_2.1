@@ -7,7 +7,7 @@ public class Main {
     public static Boolean chekPrime(int a){
         boolean check = false ;
         if (a < 2 ){
-            check = true ;
+            check = false ;
         }else {
             int i = 2 ;
             check = true;
