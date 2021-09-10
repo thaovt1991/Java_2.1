@@ -10,7 +10,7 @@ public class Prime2To100 {
         }else {
             int i = 2 ;
             check = true;
-            while (i < Math.sqrt(a))  {
+            while (i <= Math.sqrt(a))  {
                 if (a % i == 0){
                     check = false ;
                     break;

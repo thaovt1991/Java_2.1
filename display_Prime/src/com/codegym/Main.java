@@ -11,7 +11,7 @@ public class Main {
         }else {
             int i = 2 ;
             check = true;
-         while (i < Math.sqrt(a))  {
+         while (i <= Math.sqrt(a))  {
              if (a % i == 0){
                  check = false ;
                  break;
@@ -27,9 +27,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in) ;
         System.out.print("Nhập số bắt đầu : ");
         int number = scanner.nextInt() ;
+        System.out.print("Nhập số lượng các số nguyên tố cần in ra : ");
+        int  num = scanner.nextInt() ;
         int count = 0  ;
-        String str ="20 số nguyên tố bắt đầu từ " + number + " là: ";
-        while (count < 20) {
+        String str = num + " số nguyên tố bắt đầu từ " + number + " là: ";
+        while (count < num) {
            if (chekPrime(number) ){
                count ++ ;
                str += number + ", " ;
