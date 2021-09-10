@@ -5,13 +5,15 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in) ;
+        int choice ;
+        do{
         System.out.println("Menu");
         System.out.println("1.Draw the rectangle ");
         System.out.println("2.Draw the triangle  (The corner is square at 4 different angles: top-left, top-right, bottom - left, bottom-right)");
         System.out.println("3.Draw isosceles triangle");
         System.out.println("0. Exit");
         System.out.print("Enter your choice: ");
-        int choice = input.nextInt();
+        choice = input.nextInt();
         switch (choice){
             case 1 :{
                 System.out.println("Draw the rectangle");
@@ -123,5 +125,6 @@ public class Main {
             default:
                 System.out.println("No choice!");
         }
-    }
+    } while (choice != 0) ;
+  }
 }
