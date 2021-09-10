@@ -19,7 +19,6 @@ public class DeleteElementOfArray {
             System.out.print("Phân tử " + i + " của mảng : ");
             arr[i] = scanner.nextInt() ;
         }
-//        int[] arr = {4, 12, 7, 8, 1, 6, 9};
         System.out.print("Nhập giá trị cần xét trong mảng : ");
         int a = scanner.nextInt() ;
         int count = 0;
