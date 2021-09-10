@@ -35,14 +35,12 @@ public class DeleteElementOfArray {
             System.out.println("Có '" + count + "' giá trị '" + a +"' trong mảng !");
             System.out.print("Mảng sao khi xóa là : ");
         }else {
-            System.out.println("Không giá trị " + a +" trong mảng !");
+            System.out.println("Không giá trị '" + a +"' trong mảng !");
             System.out.print("Mảng là : ");
         }
         for ( int j = 0; j < arr.length ; j++){
             System.out.print(arr[j] + "  ");
         }
-
-
     }
     public static int findOfArray(int a , int[]array){
         int index = -1 ;
