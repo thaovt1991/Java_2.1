@@ -31,7 +31,13 @@ public class DeleteElementOfArray {
             }
             arr[arr.length - count] = 0 ;
         }
-        System.out.print("Mảng sao khi xóa là : ");
+        if(count != 0){
+            System.out.println("Có '" + count + "' giá trị '" + a +"' trong mảng !");
+            System.out.print("Mảng sao khi xóa là : ");
+        }else {
+            System.out.println("Không giá trị " + a +" trong mảng !");
+            System.out.print("Mảng là : ");
+        }
         for ( int j = 0; j < arr.length ; j++){
             System.out.print(arr[j] + "  ");
         }
