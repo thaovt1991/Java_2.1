@@ -24,7 +24,7 @@ public class TimeSort {
         watch.start();
         a = selectionSort(a);
         watch.stop();
-        System.out.println("Time : " + watch.getElapsedTime());
+        System.out.println("Time : " + watch.getElapsedTime() + " milliseconds");
 
     }
 }

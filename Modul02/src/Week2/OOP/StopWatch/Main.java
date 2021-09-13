@@ -34,13 +34,13 @@ public class Main {
             switch (choce) {
                 case 1: {
                     watch.start();
-                    System.out.println("Start Time  : " + watch.getStartTime());
+                    System.out.println("Start Time  : " + watch.getStartTime()+ " milliseconds");
                     break;
                 }
                 case 2: {
                     watch.stop();
-                    System.out.println("End Time : " + watch.getStopTime());
-                    System.out.println("Total Time = " + watch.getElapsedTime() );
+                    System.out.println("End Time : " + watch.getStopTime() +" milliseconds");
+                    System.out.println("Total Time = " + watch.getElapsedTime() +" milliseconds" );
                     break;
                 }
                 case 0:
