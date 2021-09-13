@@ -35,7 +35,7 @@ public class Fan {
         return speed;
     }
 
-    public boolean checkOn() {
+    public boolean isOn() {
         return on;
     }
 
@@ -66,7 +66,7 @@ public class Fan {
     @Override
     public String toString() {
         String str;
-        if (this.checkOn()) {
+        if (this.isOn()) {
             str = "Fan is on , fan's speed " + this.speed + ", fan's color " + this.color + ", fan's radius " + this.radius;
         } else {
             str = "Fan is off, fan's color " + this.color + ", fan's radius " + this.radius;
