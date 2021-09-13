@@ -6,7 +6,7 @@ public class StopWatch {
     private boolean running = false;
 
     public long getStartTime(){
-        return this.startTime ; //= System.currentTimeMillis();
+        return this.startTime ;
     }
     public  long getStopTime(){
         return  this.stopTime ;

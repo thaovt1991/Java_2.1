@@ -32,73 +32,84 @@ public class Main {
                     break;
                 }
                 case 2: {
-                    System.out.println("Draw the triangle");
-                    System.out.println("Menu");
-                    System.out.println("a. bottom - left");
-                    System.out.println("b. bottom - right");
-                    System.out.println("c. top - left");
-                    System.out.println("d. top - right");
-                    Scanner scanner = new Scanner(System.in);
-                    System.out.print("Input Changer: ");
-                    String changer = scanner.nextLine();
-                    System.out.print("Input Width Triangle : ");
-                    int widthT = input.nextInt();
+                    String changer;
+                    do {
+                        System.out.println("Draw the triangle");
+                        System.out.println("Menu");
+                        System.out.println("a. bottom - left");
+                        System.out.println("b. bottom - right");
+                        System.out.println("c. top - left");
+                        System.out.println("d. top - right");
+                        System.out.println("e. Exit");
+                        Scanner scanner = new Scanner(System.in);
+                        System.out.print("Input Changer: ");
+                        changer = scanner.nextLine();
+                        switch (changer) {
 
-                    switch (changer) {
-                        case "a": {
-                            System.out.println("bottom -left ");
-                            for (int i = 1; i <= widthT; i++) {
-                                for (int j = 1; j <= i; j++) {
-                                    System.out.print(" * ");
+                            case "a": {
+                                System.out.print("Input Width Triangle : ");
+                                int widthT = input.nextInt();
+                                System.out.println("bottom -left ");
+                                for (int i = 1; i <= widthT; i++) {
+                                    for (int j = 1; j <= i; j++) {
+                                        System.out.print(" * ");
+                                    }
+                                    System.out.println();
                                 }
-                                System.out.println();
+                                break;
                             }
-                            break;
-                        }
-                        case "b": {
-                            System.out.println(" bottom - right ");
-                            for (int i = 1; i <= widthT; i++) {
-                                for (int j = widthT - i; j >= 1; j--) {
-                                    System.out.print("   ");
+                            case "b": {
+                                System.out.print("Input Width Triangle : ");
+                                int widthT = input.nextInt();
+                                System.out.println(" bottom - right ");
+                                for (int i = 1; i <= widthT; i++) {
+                                    for (int j = widthT - i; j >= 1; j--) {
+                                        System.out.print("   ");
+                                    }
+                                    for (int k = 1; k <= i; k++) {
+                                        System.out.print(" * ");
+                                    }
+                                    System.out.println();
                                 }
-                                for (int k = 1; k <= i; k++) {
-                                    System.out.print(" * ");
-                                }
-                                System.out.println();
+                                break;
                             }
-                            break;
-                        }
-                        case "c": {
-                            System.out.println(" top - left ");
-                            for (int i = 1; i <= widthT; i++) {
+                            case "c": {
+                                System.out.print("Input Width Triangle : ");
+                                int widthT = input.nextInt();
+                                System.out.println(" top - left ");
+                                for (int i = 1; i <= widthT; i++) {
 
-                                for (int j = widthT - i; j >= 1; j--) {
-                                    System.out.print(" * ");
+                                    for (int j = widthT - i; j >= 1; j--) {
+                                        System.out.print(" * ");
+                                    }
+                                    for (int k = 1; k <= i; k++) {
+                                        System.out.print("   ");
+                                    }
+                                    System.out.println();
                                 }
-                                for (int k = 1; k <= i; k++) {
-                                    System.out.print("   ");
-                                }
-                                System.out.println();
+                                break;
                             }
-                            break;
-                        }
-                        case "d": {
-                            System.out.println(" top - right ");
-                            for (int i = 1; i <= widthT; i++) {
-                                for (int k = 1; k <= i; k++) {
-                                    System.out.print("   ");
+                            case "d": {
+                                System.out.print("Input Width Triangle : ");
+                                int widthT = input.nextInt();
+                                System.out.println(" top - right ");
+                                for (int i = 1; i <= widthT; i++) {
+                                    for (int k = 1; k <= i; k++) {
+                                        System.out.print("   ");
+                                    }
+                                    for (int j = widthT - i; j >= 1; j--) {
+                                        System.out.print(" * ");
+                                    }
+                                    System.out.println();
                                 }
-                                for (int j = widthT - i; j >= 1; j--) {
-                                    System.out.print(" * ");
-                                }
-                                System.out.println();
+                                break;
                             }
-                            break;
+                            case "e":
+                                System.exit(0);
+                            default:
+                                System.out.println("No choice!");
                         }
-                        default:
-                            System.out.println("No choice!");
-                    }
-
+                    } while (changer != "e");
                     break;
                 }
                 case 3: {
