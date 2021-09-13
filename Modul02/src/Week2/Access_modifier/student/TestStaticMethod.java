@@ -1,7 +1,7 @@
-package Week2.Access_modifier;
+package Week2.Access_modifier.student;
 
 public class TestStaticMethod {
-    public static void main(String[] args) {
+    public static void main(String args[]) {
         Student.change();
         Student s1 = new Student(111, "Hoang");
         Student s2 = new Student(222, "Khanh");

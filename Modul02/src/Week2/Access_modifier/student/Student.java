@@ -1,4 +1,4 @@
-package Week2.Access_modifier;
+package Week2.Access_modifier.student;
 
 public class Student {
     private int rollno;
@@ -18,4 +18,3 @@ public class Student {
         System.out.println(rollno + " " + name + " " + college);
     }
 }
-
