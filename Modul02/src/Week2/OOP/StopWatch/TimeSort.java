@@ -19,9 +19,9 @@ public class TimeSort {
 
     public static void main(String[] args) {
         StopWatch watch = new StopWatch();
-        int[] a = new int[100000];
-        for (int i = 0; i < 100000; i++) {
-            a[i] = (int) (Math.random() * 10000);
+        int[] a = new int[100];
+        for (int i = 0; i < 100; i++) {
+            a[i] = (int) (Math.random() * 10);
         }
         watch.start();
         a = selectionSort(a);
