@@ -35,7 +35,7 @@ public class Account {
     public String transactionHistory(){
         String str ="";
         for (int i =0 ; i < this.arr_action.length ; i++){
-           str += " " + (i+1) + ". " + this.arr_action[i] +", "+ this.arr_money[i]+ " vnd\n";
+           str += " " + (i+1) + ". " + this.arr_action[i] +", "+ this.arr_money[i]+ " VND\n";
         }
         return str ;
     }
