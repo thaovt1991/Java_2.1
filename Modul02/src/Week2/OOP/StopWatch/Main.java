@@ -18,13 +18,13 @@ public class Main {
             System.out.print("Select ! : ");
             choce = scanner.nextInt();
             if (!check) {
-                if (choce == 2) {
+                if ((choce == 2)) {
                     System.out.println("Let's run Watch ");
                     System.out.print("Select ! : ");
                     choce = scanner.nextInt();
                 }
             } else {
-                if (choce == 1) {
+                if ((choce != 2)){
                     System.out.println("Watch is running !");
                     System.out.print("Select ! : ");
                     choce = scanner.nextInt();
@@ -40,7 +40,7 @@ public class Main {
                 case 2: {
                     watch.stop();
                     System.out.println("End Time : " + watch.getStopTime() +" milliseconds");
-                    System.out.println("Total Time = " + watch.getElapsedTime() +" milliseconds" );
+                    System.out.println("Total Time = "+ watch.toString() + " = " + watch.getElapsedTime() +" milliseconds "  );
                     break;
                 }
                 case 0:

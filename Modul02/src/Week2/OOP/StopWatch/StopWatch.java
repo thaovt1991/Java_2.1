@@ -36,18 +36,25 @@ public class StopWatch {
         }
         return elapsed;
     }
+    @Override
+    public  String toString() {
+        long hour, minute , second ;
+        hour = this.getElapsedTime() / 3600000 ;
+        minute = (this.getElapsedTime() - hour* 3600000 ) / 60000 ;
+        second = ( this.getElapsedTime() - hour* 3600000 - minute * 60000 ) / 1000 ;
+        String h ="" , m = "", s="" ;
 
-
-//    //elaspsed time in seconds
-//    public long getElapsedTimeSecs() {
-//        long elapsed;
-//        if (running) {
-//            elapsed = ((System.currentTimeMillis() - startTime) / 1000);
-//        } else {
-//            elapsed = ((stopTime - startTime) / 1000);
-//        }
-//        return elapsed;
-//    }
+        if (hour < 10 ){
+            h  = "0" + hour ;
+        }else h += hour ;
+        if (minute < 10) {
+            m = "0" + minute ;
+        }else  m +=  minute ;
+        if ( second < 10 ) {
+            s = "0" + second ;
+        }else s += second ;
+        return  "Time :  " + h + " : " + m + " : " + s +"" ;
+    }
 }
 
 
