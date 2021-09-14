@@ -10,5 +10,4 @@ public class TestCircle {
         System.out.println("Radius circle2 = " + circle2.getRadius());
         System.out.println("Area circle2 = " + circle2.getArea());
     }
-
 }

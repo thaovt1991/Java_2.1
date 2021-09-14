@@ -2,7 +2,7 @@ package Week2.Access_modifier.student;
 
 public class Student {
     private int rollno;
-    private String name;
+    private String name= "Join";
     private static String college = "BBDIT";
 
     Student(int r, String n) {
