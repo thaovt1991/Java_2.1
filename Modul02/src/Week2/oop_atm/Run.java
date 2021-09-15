@@ -49,12 +49,12 @@ public class Run {
                         System.out.println("----------------------------------------------------------");
                         if (recharge_money % 1000 != 0) {
                             System.out.println("----------------------------------------------------------");
-                            System.out.println("So tien nap vào phải chẵn nghìn đồng !");
+                            System.out.println("So tien nap vào phai chan nghin dong !");
                             System.out.println("----------------------------------------------------------");
                         }
                         if (recharge_money > 10000000) {
                             System.out.println("----------------------------------------------------------");
-                            System.out.println("Gioi han muc nap la 10.000.000.000 Vnd !");
+                            System.out.println("Gioi han muc nap la 10.000.000.000 VND !");
                             System.out.println("----------------------------------------------------------");
                         }
                     } while ((recharge_money % 1000 != 0) || (recharge_money > 10000000));
