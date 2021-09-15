@@ -83,7 +83,7 @@ public class Run {
                             System.out.println("----------------------------------------------------------");
                         } else {
                             System.out.println("----------------------------------------------------------");
-                            System.out.println("So tien rut vào phải chẵn nghìn đồng ");
+                            System.out.println("So tien rut vào phai chan nghin dong !");
                             System.out.println("----------------------------------------------------------");
                         }
 
@@ -114,7 +114,7 @@ public class Run {
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("Bạn hãy chọn chức năng theo phím chọn !");
+                    System.out.println("Ban hay chon chuc nang theo phim chon !");
                     System.out.println("======================================================");
                     break;
             }
