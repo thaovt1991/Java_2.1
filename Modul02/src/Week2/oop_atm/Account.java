@@ -1,5 +1,7 @@
 package Week2.oop_atm;
 
+import java.text.DecimalFormat;
+
 public class Account {
     private String name= "Nguyen Van A" ;
     private long money = 1200000 ;
@@ -34,8 +36,9 @@ public class Account {
 
     public String transactionHistory(){
         String str ="";
+        DecimalFormat formatter = new DecimalFormat("###,###,###");
         for (int i =0 ; i < this.arr_action.length ; i++){
-           str += " " + (i+1) + ". " + this.arr_action[i] +", "+ this.arr_money[i]+ " VND\n";
+           str += " " + (i+1) + ". " + this.arr_action[i] +": "+ formatter.format(this.arr_money[i]) + " VND\n";
         }
         return str ;
     }

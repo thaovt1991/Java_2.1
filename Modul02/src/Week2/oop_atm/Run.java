@@ -1,5 +1,6 @@
 package Week2.oop_atm;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
@@ -9,6 +10,7 @@ public class Run {
         Scanner scanner;
         char choice;
         Account account = new Account();
+        DecimalFormat formatter = new DecimalFormat("###,###,###");
 
 
         do {
@@ -31,7 +33,7 @@ public class Run {
                 case 'A':
                 case 'a':
                     System.out.println("----------------------------------------------------------");
-                    System.out.println(" So du tai khoan khach hang la: " + account.getMoney() + " VND");
+                    System.out.println(" So du tai khoan khach hang la: " +formatter.format(account.getMoney())  + " VND");
                     System.out.println("----------------------------------------------------------");
                     System.out.println("\nBam nut theo menu de tiep tuc giao dich ");
                     System.out.println("======================================================");
@@ -58,7 +60,7 @@ public class Run {
                     } while ((recharge_money % 1000 != 0) || (recharge_money > 10000000));
                     account.rechargeMoney(recharge_money);
                     System.out.println("----------------------------------------------------------");
-                    System.out.println("So du tai khoan khach hang la: " + account.getMoney() + " VND");
+                    System.out.println("So du tai khoan khach hang la: " + formatter.format(account.getMoney())+ " VND");
                     System.out.println("----------------------------------------------------------");
                     System.out.println();
                     System.out.println("Bam nut theo menu de tiep tuc giao dich ");
@@ -76,8 +78,8 @@ public class Run {
                         if (withdraw_money % 1000 == 0) {
                             account.withdrawMoney(withdraw_money);
                             System.out.println("----------------------------------------------------------");
-                            System.out.println("Giao dich thanh cong. Ban vua rut " + withdraw_money + "VND thanh cong.");
-                            System.out.println("So du tai khoan khach hang la: " + account.getMoney() + " VND");
+                            System.out.println("Giao dich thanh cong. Ban vua rut " +formatter.format(withdraw_money)  + "VND thanh cong.");
+                            System.out.println("So du tai khoan khach hang la: " + formatter.format(account.getMoney()) + " VND");
                             System.out.println("----------------------------------------------------------");
                         } else {
                             System.out.println("----------------------------------------------------------");
@@ -88,7 +90,7 @@ public class Run {
                     } else {
                         System.out.println("----------------------------------------------------------");
                         System.out.println("Giao dich khong thanh cong");
-                        System.out.println("So du tai khoan khach hang la: " + account.getMoney() + " VND.");
+                        System.out.println("So du tai khoan khach hang la: " + formatter.format(account.getMoney()) + " VND.");
                         System.out.println("Ban khong the rut so tien hon so du tai khoan");
                         System.out.println("----------------------------------------------------------");
                     }
