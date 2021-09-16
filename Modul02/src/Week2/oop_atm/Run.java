@@ -118,6 +118,6 @@ public class Run {
                     System.out.println("======================================================");
                     break;
             }
-        } while ((choice != 'X') || (choice != 'x'));
+        } while ((choice != 'X') && (choice != 'x'));
     }
 }
