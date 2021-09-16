@@ -1,7 +1,6 @@
 package Week2.abtract_class_and_interface.comparable;
 
 import  Week2.inheritance.geometry.Circle;
-//import java.util.Comparator ;
 
 public class ComparableCircle extends Circle implements Comparable<ComparableCircle>{
 
