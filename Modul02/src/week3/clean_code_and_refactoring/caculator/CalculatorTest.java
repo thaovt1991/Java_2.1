@@ -2,10 +2,10 @@ package week3.clean_code_and_refactoring.caculator;
 
 import java.util.Scanner;
 
-public class CaculatorTest {
+public class CalculatorTest {
 
     public static void main(String[] args) {
-        Caculator cal = new Caculator();
+        Calculator cal = new Calculator();
         double a, b;
         char o;
         int choise;
@@ -26,9 +26,8 @@ public class CaculatorTest {
                     System.out.print("Nhap b : ");
                     b = scanner.nextDouble();
                     do {
-                        Scanner input = new Scanner(System.in);
                         System.out.print("Nhap phep tinh : ");
-                        o = input.nextLine().charAt(0);
+                        o = check.nextLine().charAt(0);
                         if (o != '+' && o != '-' && o != '*' && o != '/') {
                             System.out.println("khong co phep tinh nay, hay nhap lai phep tinh !");
                         }

@@ -1,14 +1,14 @@
 package week3.clean_code_and_refactoring.caculator;
 
-public class Caculator {
+public class Calculator {
     public static final char ADDITION = '+';
     public static final char SUBTRACTION = '-';
     public static final char MULTIPLICATION = '*';
     public static final char DIVISION = '/';
 
-    public Caculator(){};
+    public Calculator(){};
 
-    public static double calculate(double firstOperand, double secondOperand, char operator) {
+    public double calculate(double firstOperand, double secondOperand, char operator) {
         switch (operator) {
             case ADDITION:
                 return firstOperand + secondOperand ;
