@@ -1,4 +1,4 @@
-package Week2.abtract_class_and_interface.comparable_Circle;
+package Week2.abtract_class_and_interface.comparato_Circle;
 
 import Week2.inheritance.geometry.Circle;
 
