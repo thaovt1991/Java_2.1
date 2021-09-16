@@ -8,16 +8,16 @@ public class CalculatorTest {
         Calculator cal = new Calculator();
         double a, b;
         char o;
-        int choise;
+        int choice;
         do {
             Scanner check = new Scanner(System.in);
             System.out.println("Caculator ! Ban muon thuc hien tinh toan !");
             System.out.println("  1. Nhan Y de tiep tuc");
             System.out.println("  2. Nhan X đe ket thuc ");
             System.out.println();
-            System.out.println(" Hay chon !");
-            choise = check.nextLine().charAt(0);
-            switch (choise) {
+            System.out.print(" Hay chon ! ");
+            choice = check.nextLine().charAt(0);
+            switch (choice) {
                 case 'y':
                 case 'Y':
                     Scanner scanner = new Scanner(System.in);
@@ -43,7 +43,7 @@ public class CalculatorTest {
                     System.out.println("Hay lua chon theo huong dan ");
             }
 
-        } while (choise!= 'x' && choise!= 'X');
+        } while (choice!= 'x' && choice!= 'X');
     }
 
 }
