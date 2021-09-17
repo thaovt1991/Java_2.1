@@ -110,7 +110,7 @@ public class Run {
 
     public static void displayWithdrawMoney(Account obj, Atm atm) {
 
-        boolean isMinAtm = atm.getMoney() <= 50000;
+        boolean isMinAtm = atm.getMoney() < 50000;
 
         if (isMinAtm) {
             System.out.println("Tien trong Atm khong du rut ! Mong quy khach thong cam !");
