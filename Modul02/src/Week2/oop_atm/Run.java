@@ -34,7 +34,7 @@ public class Run {
                     break;
                 case 'D':
                 case 'd':
-                    displayRechargeMoney(account,atm);
+                    displayRechargeMoney(account, atm);
                     break;
                 case 'W':
                 case 'w':
@@ -68,7 +68,7 @@ public class Run {
         System.out.println("======================================================");
     }
 
-    public static void displayRechargeMoney(Account obj , Atm atm) {
+    public static void displayRechargeMoney(Account obj, Atm atm) {
         DecimalFormat formatter = new DecimalFormat("###,###,###");
         long recharge_money;
         final long MAX_RECHARGE = 1000000000 * 10;
@@ -107,7 +107,6 @@ public class Run {
         System.out.println("======================================================");
     }
 
-    ;
 
     public static void displayWithdrawMoney(Account obj, Atm atm) {
         DecimalFormat formatter = new DecimalFormat("###,###,###");
@@ -134,6 +133,7 @@ public class Run {
                         if (isWithdrawDivisible1000) {
                             if (isMaxWithdraw) {
                                 obj.withdrawMoney(withdraw_money);
+                                atm.setMoney(atm.getMoney() - withdraw_money);
                                 System.out.println("----------------------------------------------------------");
                                 System.out.println("Giao dich thanh cong. Ban vua rut " + formatter.format(withdraw_money) + "VND thanh cong.");
                                 System.out.println("So du tai khoan khach hang la: " + formatter.format(obj.getMoney()) + " VND");
@@ -148,14 +148,12 @@ public class Run {
                             System.out.println("So tien rut vào phai chan nghin dong !");
                             System.out.println("----------------------------------------------------------");
                         }
-
                     } else {
                         System.out.println("----------------------------------------------------------");
                         System.out.println("Giao dich khong thanh cong");
                         System.out.println("So du tai khoan khach hang la: " + formatter.format(obj.getMoney()) + " VND.");
                         System.out.println("Ban khong the rut so tien hon so du tai khoan");
                         System.out.println("----------------------------------------------------------");
-                        atm.setMoney(atm.getMoney()-withdraw_money);
                     }
                 } else {
                     System.out.println("So tien trong Atm khong du de ban rut !");
