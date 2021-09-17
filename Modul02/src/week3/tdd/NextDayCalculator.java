@@ -40,15 +40,6 @@ public class NextDayCalculator {
                 if (isYearLeap(year)) numDay = 29;
                 else numDay = 28;
                 break;
-            case 1:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-            case 10:
-            case 12:
-                numDay = 31;
-                break;
             case 4:
             case 6:
             case 9:
@@ -56,7 +47,7 @@ public class NextDayCalculator {
                 numDay = 30;
                 break;
             default:
-                numDay = -1;
+                numDay = 31;
         }
         return numDay;
     }
