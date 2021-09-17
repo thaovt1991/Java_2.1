@@ -12,7 +12,6 @@ class AbsoluteNumberCalculatorTest {
     public void findAbs0() {
         int a = 0;
         int expected = 0;
-
         int result = AbsoluteNumberCalculator.findAbsolute(a) ;
         assertEquals(expected, result);
     }

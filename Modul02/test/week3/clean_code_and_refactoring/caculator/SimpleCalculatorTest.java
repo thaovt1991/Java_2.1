@@ -11,7 +11,7 @@ public class SimpleCalculatorTest {
     @org.junit.Test
     @Test
     @DisplayName("Testing add 0 + 0")
-    public void testAdd0And0() {
+    public void add0And0() {
         int first = 0;
         int second = 0;
         int expected = 0;
@@ -22,7 +22,7 @@ public class SimpleCalculatorTest {
 
     @Test
     @DisplayName("Testing add 1 + 0")
-    public void testAdd1And0() {
+    public void add1And0() {
         int first = 1;
         int second = 0;
         int expected = 1;
@@ -33,7 +33,7 @@ public class SimpleCalculatorTest {
 
     @Test
     @DisplayName("Testing add 0 + 1")
-    public void testAdd0And1() {
+    public void add0And1() {
         int first = 0;
         int second = 1;
         int expected = 1;
@@ -45,18 +45,17 @@ public class SimpleCalculatorTest {
     @org.junit.Test
     @Test
     @DisplayName("Testing add 0 + 0")
-    public void testAdd5And3() {
+    public void add5And3() {
         int first = 5;
         int second = 3;
         int expected = 8;
-
         int result = SimpleCalculator.add(first, second);
         assertEquals(expected, result);
     }
 
     @Test
     @DisplayName("Testing sub 0 - 0")
-    public void testSub0and0() {
+    public void sub0And0() {
         int first = 0;
         int second = 0;
         int expected = 0;
@@ -67,7 +66,7 @@ public class SimpleCalculatorTest {
 
     @Test
     @DisplayName("Testing sub 1 - 0")
-    public void testSub1and0() {
+    public void sub1And0() {
         int first = 1;
         int second = 0;
         int expected = 1;
@@ -78,7 +77,7 @@ public class SimpleCalculatorTest {
 
     @Test
     @DisplayName("Testing sub 0 - 1")
-    public void testSub0and1() {
+    public void sub0And1() {
         int first = 0;
         int second = 1;
         int expected = -1;
@@ -88,8 +87,8 @@ public class SimpleCalculatorTest {
     }
 
     @Test
-    @DisplayName("Testing sub 0 - 0")
-    public void testSub5and3() {
+    @DisplayName("Testing sub 5 - 3")
+    public void sub5And3() {
         int first = 5;
         int second = 3;
         int expected = 2;
