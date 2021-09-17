@@ -30,8 +30,8 @@ public class TennisGame {
 
     public static String getDisplayFinalGame(String player1Name, String player2Name, int player1Score, int player2Score) {
         int distanceScore = player1Score - player2Score;
-        if (distanceScore == 1) return "Advantage player : "+ player1Name;
-        if (distanceScore == -1) return "Advantage player : "+ player2Name;
+        if (distanceScore == 1) return "Advantage player "+ player1Name;
+        if (distanceScore == -1) return "Advantage player "+ player2Name;
         if (distanceScore >= 2) return "Win for player " + player1Name ;
         return "Win for player "+ player2Name;
     }
