@@ -21,6 +21,6 @@ public class Atm {
     @Override
     public String toString(){
         DecimalFormat formatter = new DecimalFormat("###,###,###");
-        return "So tien Atm con lai la " + formatter.format(money) ;
+        return "So tien Atm con lai la " + formatter.format(money) + "VND" ;
     }
 }

@@ -3,12 +3,17 @@ package Week2.oop_atm;
 import java.text.DecimalFormat;
 
 public class Account {
-    private String name= "Nguyen Van A" ;
-    private long money = 1200000 ;
+    private String name ="" ;
+    private long money = 0 ;
     private String [] arr_action = new  String [5] ;
     private  long [] arr_money = new long[5];
 
     public Account(){};
+
+    public Account(String name , long money){
+        this.name = name ;
+        this.money = money ;
+    }
 
     public String getName(){ return this.name ; }
 

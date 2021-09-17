@@ -9,8 +9,8 @@ public class Run {
     public static void main(String[] args) {
         Scanner scanner;
         char choice;
-        Account account = new Account();
-        Atm atm = new Atm();
+        Account account = new Account("Nguyen Van A",1200000);
+        Atm atm = new Atm(1000000);
         do {
             System.out.println("Ngan hang ABC kinh chao Quy khach " + account.getName());
             System.out.println("----------------------------------------------------------");
@@ -109,24 +109,25 @@ public class Run {
 
 
     public static void displayWithdrawMoney(Account obj, Atm atm) {
-        DecimalFormat formatter = new DecimalFormat("###,###,###");
-        Scanner scanner = new Scanner(System.in);
-        long withdraw_money;
-        System.out.println("----------------------------------------------------------");
-        System.out.println("Giao dich Rut tien ");
-        System.out.print("Vui long nhap so tien: ");
-        withdraw_money = scanner.nextLong();
-        System.out.println("----------------------------------------------------------");
-        boolean isTotalMoneyBiggerWithdraw = obj.getMoney() >= withdraw_money;
-        boolean isWithdrawDivisible1000 = withdraw_money % 1000 == 0;
-        boolean isMaxWithdraw = withdraw_money <= 5000000;
-        boolean isMoneyAtmBiggerWithdraw = atm.getMoney() >= withdraw_money;//tien Atm du rut
-        boolean isMinWithdraw = withdraw_money >= 50000;
+
         boolean isMinAtm = atm.getMoney() <= 50000;
 
         if (isMinAtm) {
             System.out.println("Tien trong Atm khong du rut ! Mong quy khach thong cam !");
         } else {
+            DecimalFormat formatter = new DecimalFormat("###,###,###");
+            Scanner scanner = new Scanner(System.in);
+            long withdraw_money;
+            System.out.println("----------------------------------------------------------");
+            System.out.println("Giao dich Rut tien ");
+            System.out.print("Vui long nhap so tien: ");
+            withdraw_money = scanner.nextLong();
+            System.out.println("----------------------------------------------------------");
+            boolean isTotalMoneyBiggerWithdraw = obj.getMoney() >= withdraw_money;
+            boolean isWithdrawDivisible1000 = withdraw_money % 1000 == 0;
+            boolean isMaxWithdraw = withdraw_money <= 5000000;
+            boolean isMoneyAtmBiggerWithdraw = atm.getMoney() >= withdraw_money;//tien Atm du rut
+            boolean isMinWithdraw = withdraw_money >= 50000;
             if (isMinWithdraw) {
                 if (isMoneyAtmBiggerWithdraw) {
                     if (isTotalMoneyBiggerWithdraw) {
@@ -158,7 +159,7 @@ public class Run {
                 } else {
                     System.out.println("So tien trong Atm khong du de ban rut !");
                     System.out.println(atm);
-                    System.out.println("So tien ban chi co the rut la " + formatter.format(atm.getMoney()));
+                    System.out.println("So tien ban chi co the rut la " + formatter.format(atm.getMoney()) + "VND");
                 }
             } else {
                 System.out.println("So tien rut phai lon hon 50,000 VND !");
