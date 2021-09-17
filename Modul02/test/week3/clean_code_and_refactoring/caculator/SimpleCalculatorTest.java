@@ -2,12 +2,12 @@ package week3.clean_code_and_refactoring.caculator;
 
 import org.testng.annotations.Test;
 import org.junit.jupiter.api.DisplayName;
-import week3.tdd.Calculator;
+import week3.tdd.SimpleCalculator;
 
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CalculatorTest {
+public class SimpleCalculatorTest {
     @org.junit.Test
     @Test
     @DisplayName("Testing add 0 + 0")
@@ -16,7 +16,7 @@ public class CalculatorTest {
         int second = 0;
         int expected = 0;
 
-        int result = Calculator.add(first, second);
+        int result = SimpleCalculator.add(first, second);
         assertEquals(expected, result);
     }
 
@@ -27,7 +27,7 @@ public class CalculatorTest {
         int second = 0;
         int expected = 1;
 
-        int result = Calculator.add(first, second);
+        int result = SimpleCalculator.add(first, second);
         assertEquals(expected, result);
     }
 
@@ -38,10 +38,11 @@ public class CalculatorTest {
         int second = 1;
         int expected = 1;
 
-        int result = Calculator.add(first, second);
+        int result = SimpleCalculator.add(first, second);
         assertEquals(expected, result);
     }
 
+    @org.junit.Test
     @Test
     @DisplayName("Testing add 0 + 0")
     public void testAdd5And3() {
@@ -49,7 +50,7 @@ public class CalculatorTest {
         int second = 3;
         int expected = 8;
 
-        int result = Calculator.add(first, second);
+        int result = SimpleCalculator.add(first, second);
         assertEquals(expected, result);
     }
 
@@ -60,7 +61,7 @@ public class CalculatorTest {
         int second = 0;
         int expected = 0;
 
-        int result = Calculator.sub(first, second);
+        int result = SimpleCalculator.sub(first, second);
         assertEquals(expected, result);
     }
 
@@ -71,7 +72,7 @@ public class CalculatorTest {
         int second = 0;
         int expected = 1;
 
-        int result = Calculator.sub(first, second);
+        int result = SimpleCalculator.sub(first, second);
         assertEquals(expected, result);
     }
 
@@ -82,7 +83,7 @@ public class CalculatorTest {
         int second = 1;
         int expected = -1;
 
-        int result = Calculator.sub(first, second);
+        int result = SimpleCalculator.sub(first, second);
         assertEquals(expected, result);
     }
 
@@ -93,7 +94,7 @@ public class CalculatorTest {
         int second = 3;
         int expected = 2;
 
-        int result = Calculator.sub(first, second);
+        int result = SimpleCalculator.sub(first, second);
         assertEquals(expected, result);
     }
 }
