@@ -8,7 +8,7 @@ public class MyLinkedList {
         head = new Node(data);
     }
 
-    protected class Node {
+    private class Node {
         private Node next;
         private Object data;
 
