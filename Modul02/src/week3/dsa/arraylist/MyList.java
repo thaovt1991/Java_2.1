@@ -22,7 +22,7 @@ public class MyList<E> {
     }
     public E get(int index){
         if (index >= size|| index < 0){
-//           throw new IndexOutOfBoundsException("Index : " + index + ",size : " + index);
+          throw new IndexOutOfBoundsException("Index : " + index + ",size : " + index);
         }
         return (E) element[index] ; // vi moi element la  1 object
     }
