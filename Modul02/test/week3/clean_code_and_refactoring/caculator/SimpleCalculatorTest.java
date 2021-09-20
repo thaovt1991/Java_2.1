@@ -1,14 +1,14 @@
 package week3.clean_code_and_refactoring.caculator;
 
-import org.testng.annotations.Test;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import week3.tdd.SimpleCalculator;
 
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SimpleCalculatorTest {
-    @org.junit.Test
+//    @org.junit.Test
     @Test
     @DisplayName("Testing add 0 + 0")
     public void add0And0() {
