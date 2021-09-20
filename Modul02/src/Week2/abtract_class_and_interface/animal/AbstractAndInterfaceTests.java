@@ -9,8 +9,15 @@ public class AbstractAndInterfaceTests {
         for (Animal animal : animals) {
             System.out.println(animal.makeSound());
             if (animal instanceof Chicken) {
-                Edible edibler = (Chicken) animal;
-                System.out.println(edibler.howToEat());
+//                Edible edible = (Chicken) animal;
+//                System.out.println(edible.howToEat());
+                Edible edible = new Edible() {
+                    @Override
+                    public String howToEat() {
+                        return "could";
+                    }
+                };
+                System.out.println(edible.howToEat());
             }
         }
         Fruit [] fruits = new Fruit[2];

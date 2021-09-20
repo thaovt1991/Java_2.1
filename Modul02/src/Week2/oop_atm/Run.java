@@ -1,6 +1,5 @@
 package Week2.oop_atm;
 
-import java.sql.SQLOutput;
 import java.text.DecimalFormat;
 
 import java.util.Scanner;
@@ -9,7 +8,7 @@ public class Run {
     public static void main(String[] args) {
         Scanner scanner;
         char choice;
-        Account account = new Account("Nguyen Van A",1200000);
+        Account account = new Account("Nguyen Van A", 1200000);
         Atm atm = new Atm(1000000);
         do {
             System.out.println("Ngan hang ABC kinh chao Quy khach " + account.getName());
@@ -24,8 +23,10 @@ public class Run {
             System.out.println("----------------------------------------------------------");
             System.out.println("======================================================");
             System.out.print(" Nhap lua chon cua ban:  ");
+
             scanner = new Scanner(System.in);
             choice = scanner.nextLine().charAt(0);
+
 
             switch (choice) {
                 case 'A':
@@ -71,46 +72,64 @@ public class Run {
     public static void displayRechargeMoney(Account obj, Atm atm) {
         DecimalFormat formatter = new DecimalFormat("###,###,###");
         long recharge_money;
-        final long MAX_RECHARGE = 1000000000 * 10;
-        boolean isRechargeDivisible1000, isBigger10Billion, isNotLong;
+        String input_recharge;
+        final long MAX_RECHARGE = 1000000000;
+        boolean isRechargeDivisible1000, isBigger10Billion, isNotLong, isNum, isBigger0;
         Scanner scanner = new Scanner(System.in);
-        do {
-            System.out.println("----------------------------------------------------------");
-            System.out.println("Giao dich Nap tien ");
-            System.out.print("Vui long nhap so tien: ");
-            recharge_money = scanner.nextLong();
-            System.out.println("----------------------------------------------------------");
-            isRechargeDivisible1000 = recharge_money % 1000 != 0;
+        System.out.println("----------------------------------------------------------");
+        System.out.println("Giao dich Nap tien ");
+        System.out.print("Vui long nhap so tien: ");
+        input_recharge = scanner.nextLine();
+        isNum = isNumeric(input_recharge);
+        System.out.println("----------------------------------------------------------");
+        if (isNum) {
+            recharge_money = Long.parseLong(input_recharge);
+            isRechargeDivisible1000 = recharge_money % 1000 == 0;
             isBigger10Billion = recharge_money > MAX_RECHARGE;
             isNotLong = recharge_money / 2 + obj.getMoney() / 2 >= Long.MAX_VALUE / 2;
-            if (isRechargeDivisible1000) {
-                System.out.println("----------------------------------------------------------");
-                System.out.println("So tien nap vào phai chan nghin dong !");
-                System.out.println("----------------------------------------------------------");
+            isBigger0 = recharge_money > 0;
+
+            if (!isBigger0) {
+                System.out.println("So tien nho hon 0, hay nhap lai ");
+            } else {
+                if (!isRechargeDivisible1000) {
+                    System.out.println("----------------------------------------------------------");
+                    System.out.println("So tien nap vào phai chan nghin dong !");
+                    System.out.println("----------------------------------------------------------");
+                    displayRechargeMoney(obj, atm);
+                } else {
+                    if (isBigger10Billion) {
+                        System.out.println("----------------------------------------------------------");
+                        System.out.println("Gioi han muc nap la 1,000,000,000 VND !");
+                        System.out.println("----------------------------------------------------------");
+                        displayRechargeMoney(obj, atm);
+                    } else {
+                        if (isNotLong) {
+                            System.out.println("So tien qua lon so voi muc hien thi cua may cua ngan hang !");
+                            displayRechargeMoney(obj, atm);
+                        } else {
+                            obj.rechargeMoney(recharge_money);
+                            atm.setMoney(atm.getMoney() + recharge_money);
+                            System.out.println("----------------------------------------------------------");
+                            System.out.println("So du tai khoan khach hang la: " + formatter.format(obj.getMoney()) + " VND");
+                            System.out.println("----------------------------------------------------------");
+                            System.out.println();
+                            System.out.println("Bam nut theo menu de tiep tuc giao dich ");
+                            System.out.println("======================================================");
+                        }
+                    }
+                }
             }
-            if (isBigger10Billion) {
-                System.out.println("----------------------------------------------------------");
-                System.out.println("Gioi han muc nap la 10,000,000,000 VND !");
-                System.out.println("----------------------------------------------------------");
-            }
-            if (isNotLong) {
-                System.out.println("So tien qua lon so voi muc hien thi cua may cua ngan hang !");
-            }
-        } while ((isRechargeDivisible1000) || (isBigger10Billion) || (isNotLong));
-        obj.rechargeMoney(recharge_money);
-        atm.setMoney(atm.getMoney() + recharge_money);
-        System.out.println("----------------------------------------------------------");
-        System.out.println("So du tai khoan khach hang la: " + formatter.format(obj.getMoney()) + " VND");
-        System.out.println("----------------------------------------------------------");
-        System.out.println();
-        System.out.println("Bam nut theo menu de tiep tuc giao dich ");
-        System.out.println("======================================================");
+        } else {
+            System.out.println("Chuoi nhap vao khong phai so");
+            displayRechargeMoney(obj, atm);
+        }
     }
 
 
     public static void displayWithdrawMoney(Account obj, Atm atm) {
-
         boolean isMinAtm = atm.getMoney() < 50000;
+        String input_withdraw;
 
         if (isMinAtm) {
             System.out.println("Tien trong Atm khong du rut ! Mong quy khach thong cam !");
@@ -121,54 +140,63 @@ public class Run {
             System.out.println("----------------------------------------------------------");
             System.out.println("Giao dich Rut tien ");
             System.out.print("Vui long nhap so tien: ");
-            withdraw_money = scanner.nextLong();
+            input_withdraw = scanner.nextLine();
+            boolean isNum = isNumeric(input_withdraw);
             System.out.println("----------------------------------------------------------");
-            boolean isTotalMoneyBiggerWithdraw = obj.getMoney() >= withdraw_money;
-            boolean isWithdrawDivisible1000 = withdraw_money % 1000 == 0;
-            boolean isMaxWithdraw = withdraw_money <= 5000000;
-            boolean isMoneyAtmBiggerWithdraw = atm.getMoney() >= withdraw_money;//tien Atm du rut
-            boolean isMinWithdraw = withdraw_money >= 50000;
-            if (isMinWithdraw) {
-                if (isMoneyAtmBiggerWithdraw) {
-                    if (isTotalMoneyBiggerWithdraw) {
-                        if (isWithdrawDivisible1000) {
-                            if (isMaxWithdraw) {
-                                obj.withdrawMoney(withdraw_money);
-                                atm.setMoney(atm.getMoney() - withdraw_money);
-                                System.out.println("----------------------------------------------------------");
-                                System.out.println("Giao dich thanh cong. Ban vua rut " + formatter.format(withdraw_money) + "VND thanh cong.");
-                                System.out.println("So du tai khoan khach hang la: " + formatter.format(obj.getMoney()) + " VND");
-                                System.out.println("----------------------------------------------------------");
+
+            if (isNum) {
+                withdraw_money = Long.parseLong(input_withdraw);
+                boolean isTotalMoneyBiggerWithdraw = obj.getMoney() >= withdraw_money;
+                boolean isWithdrawDivisible1000 = withdraw_money % 1000 == 0;
+                boolean isMaxWithdraw = withdraw_money <= 5000000;
+                boolean isMoneyAtmBiggerWithdraw = atm.getMoney() >= withdraw_money;//tien Atm du rut
+                boolean isMinWithdraw = withdraw_money >= 50000;
+                if (isMinWithdraw) {
+                    if (isMoneyAtmBiggerWithdraw) {
+                        if (isTotalMoneyBiggerWithdraw) {
+                            if (isWithdrawDivisible1000) {
+                                if (isMaxWithdraw) {
+                                    obj.withdrawMoney(withdraw_money);
+                                    atm.setMoney(atm.getMoney() - withdraw_money);
+                                    System.out.println("----------------------------------------------------------");
+                                    System.out.println("Giao dich thanh cong. Ban vua rut " + formatter.format(withdraw_money) + "VND thanh cong.");
+                                    System.out.println("So du tai khoan khach hang la: " + formatter.format(obj.getMoney()) + " VND");
+                                    System.out.println("----------------------------------------------------------");
+                                } else {
+                                    System.out.println("----------------------------------------------------------");
+                                    System.out.println("So tien rut 1 lan khong duoc qua 5,000,000 VND!");
+                                    System.out.println("----------------------------------------------------------");
+                                }
                             } else {
                                 System.out.println("----------------------------------------------------------");
-                                System.out.println("So tien rut 1 lan khong duoc qua 5,000,000 VND!");
+                                System.out.println("So tien rut vào phai chan nghin dong !");
                                 System.out.println("----------------------------------------------------------");
                             }
                         } else {
                             System.out.println("----------------------------------------------------------");
-                            System.out.println("So tien rut vào phai chan nghin dong !");
+                            System.out.println("Giao dich khong thanh cong");
+                            System.out.println("So du tai khoan khach hang la: " + formatter.format(obj.getMoney()) + " VND.");
+                            System.out.println("Ban khong the rut so tien hon so du tai khoan");
                             System.out.println("----------------------------------------------------------");
                         }
                     } else {
-                        System.out.println("----------------------------------------------------------");
-                        System.out.println("Giao dich khong thanh cong");
-                        System.out.println("So du tai khoan khach hang la: " + formatter.format(obj.getMoney()) + " VND.");
-                        System.out.println("Ban khong the rut so tien hon so du tai khoan");
-                        System.out.println("----------------------------------------------------------");
+                        System.out.println("So tien trong Atm khong du de ban rut !");
+                        System.out.println(atm);
+                        System.out.println("So tien ban chi co the rut la " + formatter.format(atm.getMoney()) + "VND");
                     }
                 } else {
-                    System.out.println("So tien trong Atm khong du de ban rut !");
-                    System.out.println(atm);
-                    System.out.println("So tien ban chi co the rut la " + formatter.format(atm.getMoney()) + "VND");
+                    System.out.println("So tien rut phai lon hon 50,000 VND !");
                 }
             } else {
-                System.out.println("So tien rut phai lon hon 50,000 VND !");
+                System.out.println("Chuoi nhap vao khong phai so");
+                displayWithdrawMoney(obj, atm);
             }
+            System.out.println();
+            System.out.println("Bam nut theo menu de tiep tuc giao dich");
+            System.out.println("======================================================");
         }
-        System.out.println();
-        System.out.println("Bam nut theo menu de tiep tuc giao dich");
-        System.out.println("======================================================");
     }
+
 
     public static void displayHistory(Account obj) {
         System.out.println("----------------------------------------------------------");
@@ -178,4 +206,15 @@ public class Run {
         System.out.println("----------------------------------------------------------");
     }
 
+    public static boolean isNumeric(String str) {
+        try {
+            Long.parseLong(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
 }
+
+
