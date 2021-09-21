@@ -1,6 +1,5 @@
 package week3.dsa_stack_queue.ex_stack;
 
-import java.sql.Array;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Scanner;
