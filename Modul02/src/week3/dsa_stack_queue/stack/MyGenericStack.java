@@ -1,4 +1,4 @@
-package week3.dsa_stack_queue;
+package week3.dsa_stack_queue.stack;
 
 import java.util.EmptyStackException;
 import java.util.LinkedList ;
