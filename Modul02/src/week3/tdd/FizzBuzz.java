@@ -12,6 +12,15 @@ public class FizzBuzz {
             return "Buzz";
         return readNumberSmaller100(number);
     }
+    public  static String checkNumOfNumber(int number){
+        boolean isFizz = number / 10 ==3 || number % 10 ==3 ;
+        boolean isBuzz = number / 10 ==5 || number % 10 ==5;
+        if (isFizz)
+            return "Fizz";
+        if (isBuzz)
+            return "Buzz";
+        return readNumberSmaller100(number);
+    }
 
     public static String readNumberSmaller100(int number) {
         boolean isNumDivision10AndBigger10 = number % 10 == 0 && number != 10;
