@@ -166,11 +166,13 @@ public class Run {
                                     System.out.println("----------------------------------------------------------");
                                     System.out.println("So tien rut 1 lan khong duoc qua 5,000,000 VND!");
                                     System.out.println("----------------------------------------------------------");
+                                    displayWithdrawMoney(obj, atm);
                                 }
                             } else {
                                 System.out.println("----------------------------------------------------------");
                                 System.out.println("So tien rut vào phai chan nghin dong !");
                                 System.out.println("----------------------------------------------------------");
+                                displayWithdrawMoney(obj, atm);
                             }
                         } else {
                             System.out.println("----------------------------------------------------------");
@@ -178,14 +180,17 @@ public class Run {
                             System.out.println("So du tai khoan khach hang la: " + formatter.format(obj.getMoney()) + " VND.");
                             System.out.println("Ban khong the rut so tien hon so du tai khoan");
                             System.out.println("----------------------------------------------------------");
+                            displayWithdrawMoney(obj, atm);
                         }
                     } else {
                         System.out.println("So tien trong Atm khong du de ban rut !");
                         System.out.println(atm);
                         System.out.println("So tien ban chi co the rut la " + formatter.format(atm.getMoney()) + "VND");
+                        displayWithdrawMoney(obj, atm);
                     }
                 } else {
                     System.out.println("So tien rut phai lon hon 50,000 VND !");
+                    displayWithdrawMoney(obj, atm);
                 }
             } else {
                 System.out.println("Chuoi nhap vao khong phai so");
