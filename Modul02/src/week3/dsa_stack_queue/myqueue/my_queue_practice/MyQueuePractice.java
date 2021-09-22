@@ -1,6 +1,6 @@
 package week3.dsa_stack_queue.myqueue.my_queue_practice;
 
-public class MyQueue {
+public class MyQueuePractice {
 
     private int capacity;
     private int queueArr[];
@@ -8,7 +8,7 @@ public class MyQueue {
     private int tail = -1;
     private int currentSize = 0;
 
-    public MyQueue(int queueSize) {
+    public MyQueuePractice(int queueSize) {
         this.capacity = queueSize;
         queueArr = new int[this.capacity];
     }
@@ -59,7 +59,7 @@ public class MyQueue {
     }
 
     public static void main(String[] args) {
-        MyQueue queue = new MyQueue(4);
+        MyQueuePractice queue = new MyQueuePractice(4);
         queue.enqueue(4);
         queue.dequeue();
         queue.enqueue(56);
@@ -75,6 +75,7 @@ public class MyQueue {
 
         queue.dequeue(); ///ket qua phai la 24 moi dung ko phai 23 ;
         queue.enqueue(435);
+        queue.dequeue() ;
     }
 }
 

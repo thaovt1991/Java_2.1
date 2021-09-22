@@ -1,4 +1,4 @@
-package week3.dsa_stack_queue.myqueue;
+package week3.dsa_stack_queue.myqueue.my_queue;
 
 public class MyQueue {
     private int capacity;
@@ -41,7 +41,6 @@ public class MyQueue {
             currentSize++;
             System.out.println("Element " + item + " is pushed to Queue !");
 
-
         }
     }
 
@@ -76,11 +75,22 @@ public class MyQueue {
         queue.enqueue(98);
         queue.enqueue(45);
         queue.enqueue(23);
-        queue.dequeue(); ///ket qua phai la 24
+//        queue.dequeue(); ///ket qua phai la 24
+        queue.enqueue(435);
 //        queue.dequeue(); // 98
 //        queue.dequeue();  //45
-
+        queue.dequeue(); ///ket qua phai la 24
         queue.enqueue(435);
+        queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
+        queue.enqueue(98);
+        queue.enqueue(45);
+        queue.dequeue();
+        queue.dequeue();
+
 
     }
 }
