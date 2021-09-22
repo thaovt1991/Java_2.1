@@ -24,7 +24,8 @@ public class Run {
             }
         }
        // duyet in tree
-        Set set = map.keySet();
+        Object obj = new Object();
+        Set set = map.keySet(); set.remove(obj);
         Iterator i = set.iterator();
         while(i.hasNext()){
             key=(String)i.next();

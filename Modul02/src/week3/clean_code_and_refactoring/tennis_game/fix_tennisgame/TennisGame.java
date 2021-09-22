@@ -5,10 +5,10 @@ public class TennisGame {
         boolean isScoreEqual = player1Score == player2Score;
         boolean isFinalScore = player1Score >= 4 || player2Score >= 4;
         if (isScoreEqual) return getDisplayScoreEqual(player1Score);
-        if (isFinalScore) return getDisplayFinalGame(player1Name,player2Name,player1Score, player2Score);
+        if (isFinalScore) return getDisplayFinalGame(player1Name, player2Name, player1Score, player2Score);
         String displayPlayerScore = player1Name + " " + getDisplayPlayerScore(player1Score)
-                                   + " - "
-                                   + getDisplayPlayerScore(player2Score) + " " + player2Name;
+                + " - "
+                + getDisplayPlayerScore(player2Score) + " " + player2Name;
         return displayPlayerScore;
 
     }
@@ -29,29 +29,32 @@ public class TennisGame {
     }
 
     public static String getDisplayFinalGame(String player1Name, String player2Name, int player1Score, int player2Score) {
-        int distanceScore = player1Score - player2Score;
-        if (distanceScore == 1) return "Advantage player "+ player1Name;
-        if (distanceScore == -1) return "Advantage player "+ player2Name;
-        if (distanceScore >= 2) return "Win for player " + player1Name ;
-        return "Win for player "+ player2Name;
+        int distanceScore = getDistanceScore(player1Score, player2Score);
+        if (distanceScore == 1) return "Advantage player " + player1Name;
+        if (distanceScore == -1) return "Advantage player " + player2Name;
+        if (distanceScore >= 2) return "Win for player " + player1Name;
+        return "Win for player " + player2Name;
     }
 
-    public static String getDisplayPlayerScore(int playerScore){
-        String str ="" ;
+
+    private static int getDistanceScore(int player1Score, int player2Score) {
+        int distanceScore = player1Score - player2Score;
+        return distanceScore;
+    }
+
+
+    public static String getDisplayPlayerScore(int playerScore) {
         switch (playerScore) {
             case 0:
-                str = "Love";
-                break;
+                return "Love";
             case 1:
-                str ="Fifteen";
-                break;
+                return "Fifteen";
             case 2:
-                str = "Thirty";
-                break;
+                return "Thirty";
             case 3:
-                str = "Forty";
-                break;
+                return "Forty";
+            default:
+                return "";
         }
-        return str ;
     }
 }
