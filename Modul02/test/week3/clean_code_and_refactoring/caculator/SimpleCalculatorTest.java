@@ -8,7 +8,6 @@ import week3.tdd.SimpleCalculator;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SimpleCalculatorTest {
-//    @org.junit.Test
     @Test
     @DisplayName("Testing add 0 + 0")
     public void add0And0() {

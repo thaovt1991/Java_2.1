@@ -33,7 +33,7 @@ public class MyQueue {
             System.out.println("Overflow ! Unable to add element: " + item);
         } else {
             if (tail == capacity - 1) {
-                tail = 0;
+                tail = 0;//chi dung sau khi full va xoa pt,
             } else {
                 tail++;
             }
@@ -48,7 +48,6 @@ public class MyQueue {
         if (isQueueEmpty()) {
             System.out.println("Underflow ! Unable to remove element from Queue");
         } else {
-
             if (head == capacity - 1) {
                 System.out.println("Pop operation done ! removed: " + queueArr[head]);
                 head = 0;
@@ -56,13 +55,12 @@ public class MyQueue {
                 head++;
                 System.out.println("Pop operation done ! removed: " + queueArr[head - 1]);
             }
-
             currentSize--;
         }
     }
 
     public static void main(String[] args) {
-        MyQueue queue = new MyQueue(4);
+        MyQueue queue = new MyQueue(4) ;
         queue.enqueue(4);
         queue.dequeue();
         queue.enqueue(56);
@@ -75,11 +73,11 @@ public class MyQueue {
         queue.enqueue(98);
         queue.enqueue(45);
         queue.enqueue(23);
-//        queue.dequeue(); ///ket qua phai la 24
-        queue.enqueue(435);
+       // queue.enqueue(435);
 //        queue.dequeue(); // 98
 //        queue.dequeue();  //45
         queue.dequeue(); ///ket qua phai la 24
+        queue.dequeue(); // 98
         queue.enqueue(435);
         queue.dequeue();
         queue.dequeue();
@@ -89,7 +87,12 @@ public class MyQueue {
         queue.enqueue(98);
         queue.enqueue(45);
         queue.dequeue();
+        queue.enqueue(435);
         queue.dequeue();
+
+
+
+
 
 
     }
