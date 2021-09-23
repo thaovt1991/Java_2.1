@@ -1,20 +1,9 @@
 package week3.dsa_stack_queue.demerging;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Demerge {
-    public static class Node {
-        Node link;
-        String data;
-
-        public Node(String data) {
-            this.data = data;
-            link = null;
-        }
-
-    }
 
     public static void main(String[] args) {
 
