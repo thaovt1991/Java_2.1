@@ -1,17 +1,25 @@
 package week3.dsa_stack_queue.demerging;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class Demerging {
+public class Demerge {
+    public static class Node {
+        Node link;
+        String data;
+
+        public Node(String data) {
+            this.data = data;
+            link = null;
+        }
+
+    }
 
     public static void main(String[] args) {
-        Queue QueueNu = new Queue();
-        Queue QueueNam = new Queue();
-//        PriorityQueue Q = new PriorityQueue();
-//        LinkedList Q = new LinkedList();
-//        Q.poll()
 
+        LinkedList queueNu = new LinkedList();
+        LinkedList queueNam = new LinkedList();
         Scanner input = new Scanner(System.in);
         System.out.print("Nhap so luong nguoi trong danh sach : ");
         int num = input.nextInt();
@@ -24,9 +32,9 @@ public class Demerging {
             System.out.print(" Ho va ten nv" + i + ": ");
             name = scanner.nextLine();
             do {
-            System.out.print(" Gioi tinh nv" + i + ": ");
-            gender = scanner.nextLine();
-                if((!gender.equals("NU") ) && (!gender.equals("NAM") )){
+                System.out.print(" Gioi tinh nv" + i + ": ");
+                gender = scanner.nextLine();
+                if ((!gender.equals("NU")) && (!gender.equals("NAM"))) {
                     System.out.println("Nhap lai gioi tinh !");
                 }
             }
@@ -39,19 +47,19 @@ public class Demerging {
             month = integer.nextInt();
             System.out.print(" Nam sinh nv" + i + ": ");
             year = integer.nextInt();
+            String data = name + ", " + gender + ", " + day + "/" + month + "/" + year;
             if (gender.equals("NU")) {
-                QueueNu.enQueue(name, gender, day, month, year);
+                queueNu.addFirst(data);
             } else
-                QueueNam.enQueue(name, gender, day, month, year);
+                queueNam.addFirst(data);
             i++;
         }
-        while (!QueueNu.isEmpty()){
-            System.out.println(QueueNu.deQueue());
+        while (!queueNu.isEmpty()) {
+            System.out.println(queueNu.pollLast());
         }
-        while (!QueueNam.isEmpty()){
-            System.out.println(QueueNam.deQueue());
+        while (!queueNam.isEmpty()) {
+            System.out.println(queueNam.pollLast());
         }
-
     }
 }
 
