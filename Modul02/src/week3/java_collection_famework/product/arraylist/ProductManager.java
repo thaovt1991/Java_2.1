@@ -3,14 +3,14 @@ package week3.java_collection_famework.product.arraylist;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
-import java.util.* ;
+import java.util.*;
 
-public class ProductManager {
+public class ProductManager  {
     public ArrayList<Product> productList;
 
     public ProductManager() {
-       ArrayList<Product> productList =  new ArrayList<>() ;
-       this.productList = productList;
+        ArrayList<Product> productList = new ArrayList<>();
+        this.productList = productList;
     }
 
 
@@ -168,7 +168,20 @@ public class ProductManager {
         if (productList.isEmpty()) {
             System.out.println("There are no products in the list !");
         } else {
-            PriceDecreaseComparator priceDecreaseComparator = new PriceDecreaseComparator();
+            // PriceDecreaseComparator priceDecreaseComparator = new PriceDecreaseComparator(); //Tao lop ngoai
+            Comparator <Product> priceDecreaseComparator = new Comparator <Product> () {
+                @Override
+                public int compare(Product productOne, Product productTwo) {
+                    if (productOne.getPrice() > productTwo.getPrice()) {
+                        return 1;
+                    } else if (productOne.getPrice() == productTwo.getPrice()) {
+                        return 0;
+                    } else {
+                        return -1;
+                    }
+                }
+            } ;
+
             Collections.sort(productList, priceDecreaseComparator);
             System.out.println("Product list decrease with Price");
             int i = 1;
@@ -193,7 +206,8 @@ public class ProductManager {
             }
         }
     }
-    public void menuManager(){
+
+    public void menuManager() {
         char choice = '?';
         while (choice != '0') {
             System.out.println("Menu Product Manager");
@@ -210,19 +224,19 @@ public class ProductManager {
             choice = change.nextLine().charAt(0);
             switch (choice) {
                 case '1':
-                   addProductList();
+                    addProductList();
                     break;
                 case '2':
-                   setProductInProductListWithId();
+                    setProductInProductListWithId();
                     break;
                 case '3':
                     deleteProductInProductListWithId();
                     break;
                 case '4':
-                   displayProduct();
+                    displayProduct();
                     break;
                 case '5':
-                   sortWithPriceAscending();
+                    sortWithPriceAscending();
                     break;
                 case '6':
                     sortWithPriceDecrease();

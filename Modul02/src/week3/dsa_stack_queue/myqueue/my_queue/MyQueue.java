@@ -48,12 +48,11 @@ public class MyQueue {
         if (isQueueEmpty()) {
             System.out.println("Underflow ! Unable to remove element from Queue");
         } else {
+            System.out.println("Pop operation done ! removed: " + queueArr[head]);
             if (head == capacity - 1) {
-                System.out.println("Pop operation done ! removed: " + queueArr[head]);
                 head = 0;
             } else {
                 head++;
-                System.out.println("Pop operation done ! removed: " + queueArr[head - 1]);
             }
             currentSize--;
         }
@@ -73,9 +72,8 @@ public class MyQueue {
         queue.enqueue(98);
         queue.enqueue(45);
         queue.enqueue(23);
-       // queue.enqueue(435);
-//        queue.dequeue(); // 98
-//        queue.dequeue();  //45
+        queue.enqueue(435);
+
         queue.dequeue(); ///ket qua phai la 24
         queue.dequeue(); // 98
         queue.enqueue(435);
