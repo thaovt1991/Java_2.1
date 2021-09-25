@@ -1,4 +1,4 @@
-package week3.java_collection_famework.ex_postorder;
+package week3.java_collection_famework.ex_postorder_delete;
 
 
 public class BST<E extends Comparable<E>> extends AbstractTree<E> {
@@ -12,6 +12,7 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
         for (int i = 0; i < objects.length; i++)
             insert(objects[i]);
     }
+
     protected TreeNode<E> createNewNode(E e) {
         return new TreeNode<>(e);
     }
@@ -23,7 +24,7 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
             root = createNewNode(e); /*create a new root*/
         else {
             /*locate the parent node*/
-           TreeNode<E> parent = null;
+            TreeNode<E> parent = null;
             TreeNode<E> current = root;
             while (current != null) {
                 if (e.compareTo(current.element) < 0) {
@@ -49,6 +50,10 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
         return size;
     }
 
+    @Override
+    public void postorder() {
+        postorder(root);
+    }
 
     protected void postorder(TreeNode<E> root) {
         if (root == null) return;
@@ -56,8 +61,49 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
         postorder(root.right);
         System.out.println(root.element + " ");
     }
+
+
+
+
     @Override
-    public  void postorder(){
-        postorder(root) ;
+    public void inorder() {
+        inorder(root);
+    }
+    protected void inorder(TreeNode<E> root) {
+        if (root == null) return;
+        inorder(root.left);
+        System.out.println(root.element + " ");
+        inorder(root.right);
+    }
+
+    @Override
+    public boolean delete(E e){
+        if (root == null) return true;
+        TreeNode<E> parent = null;
+        TreeNode<E> current = root;
+        while (current != null) {
+            if (e.compareTo(current.element) < 0) {
+                parent = current;
+                current = current.left;
+            } else if (e.compareTo(current.element) > 0) {
+                parent = current;
+                current = current.right;
+            } else {
+                break;
+            }
+        }
+        if (current == null) return true;
+
+        if (current.left == null) {
+            parent.left = current.right;
+        }else {
+            current = current.left ;
+            while (current.right != null){
+                current = current.right ;
+            }
+            parent.left = current ;
+        }
+        size -- ;
+        return true;
     }
 }

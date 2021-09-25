@@ -1,4 +1,4 @@
-package week3.java_collection_famework.ex_postorder;
+package week3.java_collection_famework.ex_postorder_delete;
 
 public class TreeNode <E>{
     protected E element ;

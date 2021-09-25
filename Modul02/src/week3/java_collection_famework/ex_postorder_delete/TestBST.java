@@ -1,6 +1,6 @@
-package week3.java_collection_famework.ex_postorder;
+package week3.java_collection_famework.ex_postorder_delete;
 
-public class TestBSTPostorder {
+public class TestBST {
     public static void main(String[] args) {
         BST<Integer> Tree = new BST();
         Tree.insert(27);
@@ -13,5 +13,11 @@ public class TestBSTPostorder {
         System.out.println("PostOder: ");
         Tree.postorder();
         System.out.println("The number of nodes is: " + Tree.getSize());
+
+        Tree.delete(31) ;
+        System.out.println("Inorder: ");
+        Tree.inorder();
+        System.out.println("The number of nodes is: " + Tree.getSize());
+
     }
 }
