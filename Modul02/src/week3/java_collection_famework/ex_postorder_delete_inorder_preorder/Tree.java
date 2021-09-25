@@ -13,5 +13,6 @@ public interface Tree<E> {
 
     public boolean delete(E e);
 
+    public boolean search(E e);
 
 }

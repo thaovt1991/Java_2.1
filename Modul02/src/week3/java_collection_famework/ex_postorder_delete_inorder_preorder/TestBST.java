@@ -25,6 +25,10 @@ public class TestBST {
 
         // Delete e have in tree ;
         System.out.println("Delete 31");
+        if (Tree.search(31)){
+            System.out.println("Tree have 31");
+        } else System.out.println("Tree have not 31");
+
         Tree.delete(31) ;
         System.out.println("Inorder: ");
         Tree.inorder();
@@ -32,13 +36,15 @@ public class TestBST {
 
         // Delete e not have in tree ;
         System.out.println("Delete 15");
+
+        if (Tree.search(15)){
+            System.out.println("Tree have 15");
+        } else System.out.println("Tree have not 15");
+
         Tree.delete(15) ;
         System.out.println("Inorder: ");
         Tree.inorder();
         System.out.println("The number of nodes is: " + Tree.getSize());
-
-
-
-
+        
     }
 }
