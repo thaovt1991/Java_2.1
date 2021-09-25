@@ -33,6 +33,11 @@ public class TestBST {
         System.out.println("Inorder: ");
         Tree.inorder();
         System.out.println("The number of nodes is: " + Tree.getSize());
+       //after delete 31
+        System.out.println("After delete, search 31");
+        if (Tree.search(31)){
+            System.out.println("Tree have 31");
+        } else System.out.println("Tree have not 31");
 
         // Delete e not have in tree ;
         System.out.println("Delete 15");
