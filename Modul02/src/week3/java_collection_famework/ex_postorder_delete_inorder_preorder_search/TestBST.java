@@ -1,4 +1,4 @@
-package week3.java_collection_famework.ex_postorder_delete_inorder_preorder;
+package week3.java_collection_famework.ex_postorder_delete_inorder_preorder_search;
 
 public class TestBST {
     public static void main(String[] args) {
@@ -45,6 +45,6 @@ public class TestBST {
         System.out.println("Inorder: ");
         Tree.inorder();
         System.out.println("The number of nodes is: " + Tree.getSize());
-        
+
     }
 }
