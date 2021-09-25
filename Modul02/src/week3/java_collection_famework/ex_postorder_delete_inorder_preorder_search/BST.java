@@ -63,7 +63,6 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
     }
 
 
-
     @Override
     public void inorder() {
         inorder(root);
@@ -77,11 +76,11 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
     }
 
     @Override
-    public void preorder(){
+    public void preorder() {
         preorder(root);
     }
 
-    protected void preorder(TreeNode<E> root){
+    protected void preorder(TreeNode<E> root) {
         if (root == null) return;
         System.out.println(root.element + " ");
         preorder(root.left);
@@ -89,7 +88,7 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
     }
 
     @Override
-    public boolean delete(E e){
+    public boolean delete(E e) {
         if (root == null) return true;
         TreeNode<E> parent = null;
         TreeNode<E> current = root;
@@ -104,23 +103,29 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
                 break;
             }
         }
+///con sai
         if (current == null) return true;
-
         if (current.left == null) {
-            parent.left = current.right;
-        }else {
-            current = current.left ;
-            while (current.right != null){
-                current = current.right ;
-            }
-            parent.left = current ;
-        }
-        size -- ;
+            if (e.compareTo(parent.element) > 0)
+                parent.right = current.right;
+            else parent.left = current.right; }
+//        } else {
+//            TreeNode<E> temp = current.left;
+//            while (temp.right!= null) {
+//                temp = temp.right;
+//            }
+//
+//            if (e.compareTo(parent.element) > 0)
+//                parent.right = temp ;
+//            else parent.left = temp ;
+//            delete(temp.element);
+//        }
+        size--;
         return true;
     }
 
     @Override
-    public boolean search(E e){
+    public boolean search(E e) {
         if (root == null)
             return false;
         TreeNode<E> parent = null;
@@ -133,7 +138,7 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
                 parent = current;
                 current = current.right;
             } else {
-                return true ;
+                return true;
             }
         }
         return false;
