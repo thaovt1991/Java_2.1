@@ -35,7 +35,7 @@ public class TestBST {
 //            System.out.println("Tree have 35");
 //        } else System.out.println("Tree have not 35");
 
-        Tree.delete(11) ;
+        Tree.delete(35) ;
         System.out.println("Inorder: ");
         Tree.inorder();
         System.out.println("The number of nodes is: " + Tree.getSize());

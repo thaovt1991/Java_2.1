@@ -108,20 +108,32 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
         if (current.left == null) {
             if (e.compareTo(parent.element) > 0)
                 parent.right = current.right;
-            else parent.left = current.right; }
-//        } else {
-//            TreeNode<E> temp = current.left;
-//            while (temp.right!= null) {
-//                temp = temp.right;
-//            }
-//
-//            if (e.compareTo(parent.element) > 0)
-//                parent.right = temp ;
-//            else parent.left = temp ;
-//            delete(temp.element);
-//        }
+            else parent.left = current.right;
+        } else {
+
+            // con sai loi doan noi, buon ngu qua di ngu mai lam
+            TreeNode<E> temp = current.left;
+            while (temp.right != null) {
+                temp = temp.right;
+            }
+            current.element = temp.element;
+
+            if (e.compareTo(parent.element) > 0)
+                parent.right = current;
+            else parent.left = current;
+
+
+
+        }
         size--;
         return true;
+    }
+
+    public void Free(TreeNode<E> root) {
+        if (root == null) return;
+        Free(root.left);
+        Free(root.right);
+        Free(root);
     }
 
     @Override
