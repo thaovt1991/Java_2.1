@@ -1,11 +1,13 @@
-package week3.java_collection_famework.ex_postorder_delete;
+package week3.java_collection_famework.ex_postorder_delete_inorder_preorder;
 
-public interface Tree<E>  {
+public interface Tree<E> {
     public boolean insert(E e);
 
     public void postorder();
 
     public void inorder();
+
+    public void preorder();
 
     public int getSize();
 

@@ -1,4 +1,4 @@
-package week3.java_collection_famework.ex_postorder_delete;
+package week3.java_collection_famework.ex_postorder_delete_inorder_preorder;
 
 
 public class BST<E extends Comparable<E>> extends AbstractTree<E> {
@@ -21,7 +21,7 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
     @Override
     public boolean insert(E e) {
         if (root == null)
-            root = createNewNode(e); /*create a new root*/
+            root = createNewNode(e);
         else {
             /*locate the parent node*/
             TreeNode<E> parent = null;
@@ -42,7 +42,7 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
                 parent.right = createNewNode(e);
         }
         size++;
-        return true; /*element inserted successfully*/
+        return true;
     }
 
     @Override
@@ -64,16 +64,28 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
 
 
 
-
     @Override
     public void inorder() {
         inorder(root);
     }
+
     protected void inorder(TreeNode<E> root) {
         if (root == null) return;
         inorder(root.left);
         System.out.println(root.element + " ");
         inorder(root.right);
+    }
+
+    @Override
+    public void preorder(){
+        preorder(root);
+    }
+
+    protected void preorder(TreeNode<E> root){
+        if (root == null) return;
+        System.out.println(root.element + " ");
+        preorder(root.left);
+        preorder(root.right);
     }
 
     @Override
@@ -106,4 +118,5 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
         size -- ;
         return true;
     }
+
 }
