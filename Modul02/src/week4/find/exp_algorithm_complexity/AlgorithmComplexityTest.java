@@ -26,3 +26,5 @@ public class AlgorithmComplexityTest {
         System.out.println("The most appearing letter is '" + character + "' with a frequency of " + max + " times");
     }
 }
+
+
