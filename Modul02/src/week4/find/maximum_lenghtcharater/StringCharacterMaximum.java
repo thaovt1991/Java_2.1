@@ -17,7 +17,7 @@ public class StringCharacterMaximum {
                 if(string.charAt(j) > list.getLast()) list.add(string.charAt(j));  // 1 cau lenh
                 else break;
             }
-            if (list.size() > max.size()){      //
+            if (list.size() > max.size()){      // 1 cau lenh
                 max.clear();
                 max.addAll(list);
             }
