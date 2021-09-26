@@ -87,7 +87,7 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
         preorder(root.right);
     }
 
-    @Override
+        @Override
     public boolean delete(E e) {
         if (root == null) return true;
         TreeNode<E> parent = null;
@@ -103,7 +103,6 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
                 break;
             }
         }
-///con sai
         if (current == null) return true;
         if (current.left == null) {
             if (e.compareTo(parent.element) > 0)
@@ -111,30 +110,66 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
             else parent.left = current.right;
         } else {
 
-            // con sai loi doan noi, buon ngu qua di ngu mai lam
+
             TreeNode<E> temp = current.left;
             while (temp.right != null) {
                 temp = temp.right;
             }
             current.element = temp.element;
 
-            if (e.compareTo(parent.element) > 0)
-                parent.right = current;
-            else parent.left = current;
-
-
+// con sai loi noi cay
+            while (current != null) {
+                if(current.element == current.left){
+                    current= current.left ;
+                }
+                if (e.compareTo(current.element) < 0) {
+                    parent = current;
+                    current = current.left;
+                } else if (e.compareTo(current.element) > 0) {
+                    parent = current;
+                    current = current.right;
+                }
+            }
 
         }
+
         size--;
         return true;
     }
-
-    public void Free(TreeNode<E> root) {
-        if (root == null) return;
-        Free(root.left);
-        Free(root.right);
-        Free(root);
-    }
+//    protected TreeNode<E> getSuccessor(TreeNode<E> p) {
+//        while (p.left != null) p = p.left;
+//        return p;
+//    }
+//
+//    protected void deleteNode(TreeNode<E> root, E e) {
+//        if (root == null) return;
+//        if (e.compareTo(root.element) < 0) deleteNode(root.left, e);
+//        else if (e.compareTo(root.element) > 0) deleteNode(root.right, e);
+//        else {
+//            TreeNode<E> current = root;
+//            if (root.left == null) {
+//                current = root;
+//                root = root.right;
+//              //  delete(current.element)
+//            } else if (root.right == null) {
+//                current = root;
+//                root = root.left;
+//               // delete(current.element);
+//            } else {
+//                TreeNode<E> temp = getSuccessor(root.right);
+//                root.element = temp.element;
+//                deleteNode(root.right, temp.element);
+//            }
+//        }
+////
+////    }
+//
+//
+//    @Override
+//    public void delete(E e) {
+//        deleteNode(this.root, e);
+//        size -- ;
+//    }
 
     @Override
     public boolean search(E e) {
