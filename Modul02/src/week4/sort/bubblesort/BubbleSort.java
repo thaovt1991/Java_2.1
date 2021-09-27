@@ -30,7 +30,11 @@ public class BubbleSort {
     }
     public static void main(String[] args) {
         bubbleSort(list);
+
         for (int i = 0; i < list.length; i++)
             System.out.print(list[i] + " ");
+        System.out.println();
+        int[]arr = {3,4,5,2,1} ;
+        bubbleSort(arr);
     }
 }
