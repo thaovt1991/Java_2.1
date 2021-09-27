@@ -88,35 +88,27 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
     }
 
 
-//    public void deleteNode(TreeNode<E> root, E e) {
-//        if (root == null) return;
-//        TreeNode<E> parent = null;
-//        TreeNode<E> current = root;
-//        while (current != null) {
-//            if (e.compareTo(current.element) < 0) {
-//                parent = current;
-//                current = current.left;
-//            } else if (e.compareTo(current.element) > 0) {
-//                parent = current;
-//                current = current.right;
+//    protected TreeNode<E> deleteNode(TreeNode<E> root, E e) {
+//        if (root == null) return root;
+//        if (e.compareTo(root.element) < 0)
+//            root = deleteNode(root.left, e);
+//        else if (e.compareTo(root.element) > 0)
+//            root = deleteNode(root.right, e);
+//        else {
+//            if (root.left == null) {
+//                root = root.right;
+//            } else if (root.right == null) {
+//                root = root.left;
 //            } else {
-//                break;
+//                TreeNode<E> temp = root.right;
+//                while (temp.left != null) {
+//                    temp = temp.left;
+//                }
+//                root.element = temp.element;
+//                root.right = deleteNode(root.right, temp.element);
 //            }
 //        }
-//          if (current== null) return ;
-//        if (current.left == null) {
-//            if (e.compareTo(parent.element) > 0)
-//                parent.right = current.right;
-//            else parent.left = current.right;
-//        } else {
-//            TreeNode<E> temp = parent.right;
-//            while (temp.left != null) {
-//                temp = temp.left;
-//            }
-//            parent.element = temp.element;
-//            deleteNode(parent.right, temp.element);
-//        }
-//        return;
+//        return root;
 //    }
 
     protected TreeNode<E> getSuccessor(TreeNode<E> p) {
