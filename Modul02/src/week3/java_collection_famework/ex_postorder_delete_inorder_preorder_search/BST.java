@@ -87,7 +87,7 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
         preorder(root.right);
     }
 
-        @Override
+    @Override
     public boolean delete(E e) {
         if (root == null) return true;
         TreeNode<E> parent = null;
