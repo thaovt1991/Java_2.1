@@ -87,6 +87,8 @@ public class MyQueue {
         queue.dequeue();
         queue.enqueue(435);
         queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
 
 
 

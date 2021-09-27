@@ -73,9 +73,11 @@ public class MyQueuePractice {
         queue.enqueue(45);
         queue.enqueue(23);
 
-        queue.dequeue(); ///ket qua phai la 24 moi dung ko phai 23 ;
+       // queue.dequeue(); ///ket qua phai la 24 moi dung ko phai 23 ;
         queue.enqueue(435);
-        queue.dequeue() ;//sai
+        queue.dequeue() ;//sai/
+        queue.enqueue(435);
+        queue.dequeue();
     }
 }
 
