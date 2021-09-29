@@ -1,4 +1,4 @@
-package week4.Debug;
+package week4.Debug.arrayExample;
 
 import java.util.Random;
 import java.util.Scanner;
