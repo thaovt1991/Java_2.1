@@ -86,7 +86,7 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
         preorder(root.left);
         preorder(root.right);
     }
-    
+
     protected TreeNode<E> deleteNode(TreeNode<E> root, E e) {
         if (root == null) return root;
         if (e.compareTo(root.element) < 0)

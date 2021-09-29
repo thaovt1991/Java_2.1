@@ -3,7 +3,7 @@ package ex_DSA;
 import java.util.Arrays;
 
 public class QueueArray<E> {
-    private final int CAPACITY = 5;
+    private  int CAPACITY = 5;
     private Object[] queueArr;
     private int head = 0;
     private int tail = 0;
@@ -34,7 +34,7 @@ public class QueueArray<E> {
         return false;
     }
 
-    public void enqueue(Object item) {
+    public void enQueue(Object item) {
         if (isQueueFull()) {
             resizeArr();
         }
@@ -43,7 +43,7 @@ public class QueueArray<E> {
         currentSize++;
     }
 
-    public E dequeue() {
+    public E deQueue() {
         if (isQueueEmpty())
             return null;
         E temp = (E) queueArr[head];
@@ -54,11 +54,12 @@ public class QueueArray<E> {
     public E peek(){
         if (isQueueEmpty())
             return null;
-       return  (E) queueArr[head];
+       return  (E) queueArr[tail-1];
     }
 
     @Override
     public String toString(){
+        if(isQueueEmpty()) return "Queue Empty!";
         String str ="";
         for (int i = head , j = 1;i< head +currentSize ; i++,j++){
             str += j + ". " + queueArr[i] + "\n" ;

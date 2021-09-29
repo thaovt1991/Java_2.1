@@ -58,6 +58,7 @@ public class StackArray<E> {
 
     @Override
     public String toString() {
+        if(isEmpty())return "Stack empty!" ;
         String str = "";
         for (int i = 0; i < index ; i++) {
             str += (i + 1) + ". " + (E) arrayStack[i].toString() + "\n";

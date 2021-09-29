@@ -37,6 +37,7 @@ public class StackLinkedList<E> {
 
     @Override
     public String toString() {
+        if(isEmpty()) return "Stack Empty !" ;
         String str = "";
        for (int i = 0 ; i < Stack.size() ;i++){
            str +=  +(i + 1) + ". " + Stack.get(i)+ "\n";

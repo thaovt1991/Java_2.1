@@ -13,6 +13,10 @@ public class StackMyLinkedList<E> {
        stack.addLast(element);
        size++ ;
     }
+    public boolean isEmpty(){
+        if(size == 0) return true;
+        return false;
+    }
 
 
     public E pop(){
@@ -35,6 +39,7 @@ public class StackMyLinkedList<E> {
 
     @Override
     public String toString(){
+        if(isEmpty())return "Stack empty!" ;
         String str ="" ;
         for (int i = 0 ; i < size ; i++){
             str += (i +1) + ". " + stack.getIndex(i) + "\n";
