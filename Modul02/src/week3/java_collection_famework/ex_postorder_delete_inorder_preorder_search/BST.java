@@ -86,53 +86,52 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
         preorder(root.left);
         preorder(root.right);
     }
-
-
-//    protected TreeNode<E> deleteNode(TreeNode<E> root, E e) {
-//        if (root == null) return root;
-//        if (e.compareTo(root.element) < 0)
-//            root = deleteNode(root.left, e);
-//        else if (e.compareTo(root.element) > 0)
-//            root = deleteNode(root.right, e);
-//        else {
-//            if (root.left == null) {
-//                root = root.right;
-//            } else if (root.right == null) {
-//                root = root.left;
-//            } else {
-//                TreeNode<E> temp = root.right;
-//                while (temp.left != null) {
-//                    temp = temp.left;
-//                }
-//                root.element = temp.element;
-//                root.right = deleteNode(root.right, temp.element);
-//            }
-//        }
-//        return root;
-//    }
-
-    protected TreeNode<E> getSuccessor(TreeNode<E> p) {
-        while (p.left != null) p = p.left;
-        return p;
-    }
-
+    
     protected TreeNode<E> deleteNode(TreeNode<E> root, E e) {
         if (root == null) return root;
-        if (e.compareTo(root.element) < 0) root = deleteNode(root.left, e);
-        else if (e.compareTo(root.element) > 0) root = deleteNode(root.right, e);
+        if (e.compareTo(root.element) < 0)
+            root.left = deleteNode(root.left, e);
+        else if (e.compareTo(root.element) > 0)
+            root.right = deleteNode(root.right, e);
         else {
             if (root.left == null) {
-                root = root.right;
+              root = root.right;
             } else if (root.right == null) {
                 root = root.left;
             } else {
-                TreeNode<E> temp = getSuccessor(root.right);
+                TreeNode<E> temp = root.right;
+                while (temp.left != null) {
+                    temp = temp.left;
+                }
                 root.element = temp.element;
                 root.right = deleteNode(root.right, temp.element);
             }
         }
         return root;
     }
+
+//    protected TreeNode<E> getSuccessor(TreeNode<E> p) {
+//        while (p.left != null) p = p.left;
+//        return p;
+//    }
+//
+//    protected TreeNode<E> deleteNode(TreeNode<E> root, E e) {
+//        if (root == null) return root;
+//        if (e.compareTo(root.element) < 0) root.left = deleteNode(root.left, e);
+//        else if (e.compareTo(root.element) > 0) root.right = deleteNode(root.right, e);
+//        else {
+//            if (root.left == null) {
+//               return  root.right;
+//            } else if (root.right == null) {
+//               return  root.left;
+//            } else {
+//                TreeNode<E> temp = getSuccessor(root.right);
+//                root.element = temp.element;
+//                root.right = deleteNode(root.right, temp.element);
+//            }
+//        }
+//        return root;
+//    }
 
     @Override
     public boolean delete(E e) {

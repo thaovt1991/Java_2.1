@@ -2,7 +2,7 @@ package week3.dsa_stack_queue.my_stack;
 
 public class StackClient {
     public static void main(String[] as) throws Exception {
-       MyStack stack = new MyStack(5) ;
+       MyStack stack = new MyStack(2) ;
 
         stack.push(5);
         stack.push(4);

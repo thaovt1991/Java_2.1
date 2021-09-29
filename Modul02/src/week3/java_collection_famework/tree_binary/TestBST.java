@@ -4,7 +4,7 @@ public class TestBST {
     public static void main(String[] args) {
         //create a BST
         BST<String> tree = new BST<>();
-        tree.insert("5");
+        tree.insert("1");
         tree.insert("2");
         tree.insert("3");
         tree.insert("4");

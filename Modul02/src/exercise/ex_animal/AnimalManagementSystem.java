@@ -115,7 +115,7 @@ public class AnimalManagementSystem {
             System.out.println("Id not in list animal !");
         }
         for (int i = 0; i < animals.length; i++) {
-            if (getIdAnimals(animals[i]) == id) {
+            if (animals[i].getID() == id) {
                 animals[i] = null;
                 break;
             }
@@ -124,21 +124,22 @@ public class AnimalManagementSystem {
     }
     public static boolean isIdAnimal(int id){
         for (int i = 0; i < animals.length; i++) {
-            if (getIdAnimals(animals[i]) == id)
+            if (animals[i].getID() == id)
                 return true;
         }
+
         return false ;
     }
 
-    public static int getIdAnimals(IAnimal animal) {
-        if (animal instanceof Cat)
-            return ((Cat) animal).getID();
-        if (animal instanceof Fish)
-            return ((Fish) animal).getID();
-        if (animal instanceof Crocodile)
-        return ((Crocodile) animal).getID();
-        return Integer.MIN_VALUE;
-    }
+//    public static int getIdAnimals(IAnimal animal) {
+//        if (animal instanceof Cat)
+//            return ((Cat) animal).getID();
+//        if (animal instanceof Fish)
+//            return ((Fish) animal).getID();
+//        if (animal instanceof Crocodile)
+//        return ((Crocodile) animal).getID();
+//        return Integer.MIN_VALUE;
+//    }
 
     public static void main(String[] args) {
 

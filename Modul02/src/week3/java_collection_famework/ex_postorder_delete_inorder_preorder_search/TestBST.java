@@ -8,13 +8,16 @@ public class TestBST {
         Tree.insert(14);
         Tree.insert(10);
         Tree.insert(19);
+        Tree.insert(18);
+        Tree.insert(21);
+        Tree.insert(20);
         Tree.insert(42);
         Tree.insert(31);
+        Tree.insert(50);
         Tree.insert(45);
         Tree.insert(46);
-        Tree.insert(11);
+        Tree.insert(41);
         Tree.insert(43);
-        Tree.insert(29);
         Tree.insert(32);
 
 
@@ -25,13 +28,13 @@ public class TestBST {
         Tree.inorder();
         System.out.println("The number of nodes is: " + Tree.getSize());
 
-        System.out.println("PostOder: ");
-        Tree.postorder();
-        System.out.println("The number of nodes is: " + Tree.getSize());
+//        System.out.println("PostOder: ");
+//        Tree.postorder();
+//        System.out.println("The number of nodes is: " + Tree.getSize());
 
-        System.out.println("Preorder: ");
-        Tree.preorder();
-        System.out.println("The number of nodes is: " + Tree.getSize());
+//        System.out.println("Preorder: ");
+//        Tree.preorder();
+//        System.out.println("The number of nodes is: " + Tree.getSize());
 
          //Delete e have in tree ;
         System.out.println("Delete 35");
@@ -48,22 +51,22 @@ public class TestBST {
         if (Tree.search(35)){
             System.out.println("Tree have 35");
         } else System.out.println("Tree have not 35");
-
-
-
-
-
-        // Delete e not have in tree ;
-        System.out.println("Delete 15");
-
-        if (Tree.search(15)){
-            System.out.println("Tree have 15");
-        } else System.out.println("Tree have not 15");
-
-        Tree.delete(15) ;
-        System.out.println("Inorder: ");
-        Tree.inorder();
-        System.out.println("The number of nodes is: " + Tree.getSize());
+//
+//
+//
+//
+//
+//        // Delete e not have in tree ;
+//        System.out.println("Delete 15");
+//
+        if (Tree.search(21)){
+            System.out.println("Tree have 21");
+        } else System.out.println("Tree have not 21");
+//
+//        Tree.delete(15) ;
+//        System.out.println("Inorder: ");
+//        Tree.inorder();
+//        System.out.println("The number of nodes is: " + Tree.getSize());
 
     }
 }

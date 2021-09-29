@@ -18,8 +18,19 @@ public class Main {
         for(Student st : lists){
             System.out.println(st.toString());
         }
+        System.out.println();
+        Collections.reverse(lists);
+        for(Student st : lists){
+            System.out.println(st.toString());
+        }
 
         AgeComparator ageComparator = new AgeComparator();
+        Collections.sort(lists,ageComparator);
+        System.out.println("So sanh theo tuoi:");
+        for(Student st : lists){
+            System.out.println(st.toString());
+        }
+
         Collections.sort(lists,ageComparator);
         System.out.println("So sanh theo tuoi:");
         for(Student st : lists){

@@ -1,25 +1,28 @@
-package week3.dsa.ex_mylinked_list;
-
+package ex_DSA;
 
 public class MyLinkedList<E> {
-    private Node head;
     private int numNodes;
+    private Node head;
     private Node tail;
 
-    private class Node {
-        private Node next;
-        private Object data;
+    public class Node {
+        public Object data;
+        public Node next;
 
         public Node(Object data) {
             this.data = data;
         }
 
         public Object getData() {
-            return this.data;
+            return data;
         }
 
         public Node getNext() {
             return next;
+        }
+
+        public void setNext(Node next) {
+            this.next = next;
         }
 
         @Override
@@ -32,12 +35,41 @@ public class MyLinkedList<E> {
         head = null;
     }
 
-
-    public MyLinkedList(Object data) {
+    public MyLinkedList(E data) {
         head = new Node(data);
     }
+    public boolean isEmpty(){
+        if(numNodes == 0) return true ;
+        return false;
+    }
 
-    public void add(int index, Object data) {
+    public Node getHead() {
+        return head;
+    }
+
+    public Node getTail() {
+        if(numNodes <= 1)return head ;
+        int i = 1;
+        Node temp = head;
+        while (i < numNodes - 1) {
+            temp = temp.next;
+            i++;
+        }
+        return temp.next;
+    }
+
+    public boolean add(E data) {
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = new Node(data);
+        tail = temp.next;
+        tail.next = null;
+        return true;
+    }
+
+    public void add(int index, E data) {
         Node temp = head;
         Node holder;
         for (int i = 0; i < index - 1 && temp.next != null; i++) {
@@ -49,33 +81,24 @@ public class MyLinkedList<E> {
         numNodes++;
     }
 
-    public boolean isEmpty() {
-        if (numNodes == 0) return true;
-        return false;
-    }
-
     public void addFirst(E data) {
         Node temp = head;
         head = new Node(data);
         head.next = temp;
-        this.numNodes++;
+        numNodes++;
     }
 
     public void addLast(E data) {
-
         if (isEmpty()) addFirst(data) ;
         else {
-            Node temp = head;
-            while (temp.next != null) {
-                temp = temp.next;
-            }
-            temp.next = new Node(data);
-            tail = temp.next;
-            tail.next = null;
-            numNodes++;
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
         }
-
-
+        temp.next = new Node(data);
+        tail = temp.next;
+        tail.next = null;
+        numNodes++;}
     }
 
     public E removeFirst() {
@@ -93,37 +116,34 @@ public class MyLinkedList<E> {
 
     public E removeLast() {
         if (numNodes == 0) return null;
-        else if (numNodes == 1) {
-            Node temp = head;
-            head = null;
-            tail = head;
+
+        Node temp;
+        if (numNodes == 1) {
+            temp = head;
+            head = tail = null;
             numNodes = 0;
-            return (E) temp.data;
         } else {
             Node current = head;
-
-            for (int i = 0; i < numNodes - 2; i++)
+            for (int i = 1; i < numNodes - 1; i++) {
                 current = current.next;
-
-            Node temp = current.next;
+            }
+            temp = current.next;
             tail = current;
             tail.next = null;
             numNodes--;
-            return (E) temp.data;
         }
+        return (E) temp.data;
     }
 
     public E remove(int index) {
         if (index < 0 || index >= numNodes) return null;
-        else if (index == 0) return removeFirst();
-        else if (index == numNodes - 1) return removeLast();
+        if (index == 0) return removeFirst();
+        if (index == numNodes - 1) return removeLast();
         else {
             Node previous = head;
-
             for (int i = 1; i < index; i++) {
                 previous = previous.next;
             }
-
             Node current = previous.next;
             previous.next = current.next;
             numNodes--;
@@ -131,7 +151,21 @@ public class MyLinkedList<E> {
         }
     }
 
-    public boolean remove(Object e) {
+    public E getIndex(int index) {
+        if (index < 0 || index >= numNodes) return null;
+        if (index == 0) return (E) getHead().data;
+        if (index == numNodes - 1) return (E) getTail().data;
+        else {
+            Node previous = head;
+            for (int i = 1; i < index; i++) {
+                previous = previous.next;
+            }
+            return (E) previous.next.data;
+        }
+    }
+
+
+    public boolean remove(E e) {
         Node temp = head;
         for (int i = 0; i < numNodes; i++) {
             temp = temp.next;
@@ -147,7 +181,7 @@ public class MyLinkedList<E> {
         return numNodes;
     }
 
-    public int indexOf(Object data) {
+    public int indexOf(E data) {
         Node temp = head;
         for (int i = 0; i < numNodes; i++) {
             if (temp.getData().equals(data)) {
@@ -159,7 +193,7 @@ public class MyLinkedList<E> {
         return -1;
     }
 
-    public boolean isContain(Object data) {
+    public boolean isContain(E data) {
         Node temp = head;
         while (!(temp == null)) {
             if (temp.getData().equals(data)) {
@@ -170,7 +204,7 @@ public class MyLinkedList<E> {
         return false;
     }
 
-    public MyLinkedList clone() {
+    public MyLinkedList<E> clone() {
         Node cloneCursor = head;
         MyLinkedList clone = new MyLinkedList(cloneCursor.getData());
         for (int i = 1; i < numNodes; i++) {
@@ -193,24 +227,11 @@ public class MyLinkedList<E> {
         System.out.println("\n");
     }
 
-    public Node getHead() {
-        return head;
-    }
-
-    public Node getTail() {
-        if(numNodes<= 1)return head ;
-        int i = 1;
-        Node temp = head;
-        while (i < numNodes - 1) {
-            temp = temp.next;
-            i++;
-        }
-        return temp.next;
-    }
-
     public void clear() {
         head = null;
         tail = null;
     }
-
 }
+
+
+

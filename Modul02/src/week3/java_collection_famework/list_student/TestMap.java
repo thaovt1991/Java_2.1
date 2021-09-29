@@ -8,10 +8,12 @@ import java.util.TreeMap;
 public class TestMap {
     public static void main(String[] args) {
         Map<String, Integer> hashMap = new HashMap<>();
+
         hashMap.put("Smith", 30);
         hashMap.put("Anderson", 31);
         hashMap.put("Lewis", 29);
         hashMap.put("Cook", 29);
+
         System.out.println("Display entries in HashMap");
         System.out.println(hashMap + "\n");
 
@@ -34,6 +36,7 @@ public class TestMap {
         m1.put("schildt", "java2s");
         System.out.println(m1.keySet());
         System.out.println(m1.values());
+        System.out.println();
 
         Map sm = new TreeMap();
         sm.put("map", "TreeMap");
@@ -42,6 +45,7 @@ public class TestMap {
         sm.put("schildt", "java2s");
         System.out.println(sm.keySet());
         System.out.println(sm.values());
+        System.out.println();
 
         LinkedHashMap lm = new LinkedHashMap();
         lm.put("map", "LinkedHashMap");
@@ -50,5 +54,6 @@ public class TestMap {
         lm.put("schildt", "java2s");
         System.out.println(lm.keySet());
         System.out.println(lm.values());
+        System.out.println();
     }
 }

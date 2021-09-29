@@ -11,7 +11,7 @@ public class Fish implements IMarineAnimal {
     public String getType(){
         return  "Fish" ;
     }
-
+    @Override
     public int getID() {
         return ID;
     }

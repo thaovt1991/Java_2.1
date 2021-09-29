@@ -12,7 +12,7 @@ public class TestMap {
         studentMap.put(1,student1);
         studentMap.put(2,student2);
         studentMap.put(3,student3);
-        studentMap.put(2,student1);
+        studentMap.put(4,student1);
         studentMap.put(5,student4);
 
 
@@ -23,12 +23,12 @@ public class TestMap {
         // tra ve gia tri tu tren xuonsg va thay the gia trij cuoi cung vao key trung lap
 
         System.out.println("...........Set");
-        Set<Student> students = new HashSet<Student>();
+        Set<Student> students = new HashSet<>();
         students.add(student1);
         students.add(student2);
         students.add(student3);
         students.add(student1);
-        students.add(student4);
+       students.add(student4);
         for(Student student : students){
             System.out.println(student.toString());
         }
