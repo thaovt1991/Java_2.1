@@ -21,6 +21,13 @@ public class ReadCSV {
             File file = new File(fileName);
             if(!file.exists()){
                 writeCsvFile(fileName);
+//                try {
+//                    FileWriter  writer = new FileWriter(fileName);
+//                    System.out.println("Success");
+//                }catch (Exception e){
+//                    e.getStackTrace();
+//                }
+
             }
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line ="";
@@ -62,7 +69,7 @@ public class ReadCSV {
         countries.add(country7);
 
 
-        FileWriter fileWriter = null;
+        FileWriter fileWriter = null; //creart
 
         try {
             fileWriter = new FileWriter(fileName);

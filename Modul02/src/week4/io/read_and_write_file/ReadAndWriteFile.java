@@ -28,7 +28,8 @@ public class ReadAndWriteFile {
         try{
             FileWriter writer = new FileWriter(fildePath,true) ;
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
-            bufferedWriter.write("Max value is : "+ max);
+            bufferedWriter.write("Max value is : "+ max); //
+           // bufferedWriter.append("Max value is : "+ max);
             bufferedWriter.close();
         }catch (IOException e){
             e.printStackTrace();
