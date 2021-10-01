@@ -42,6 +42,7 @@ public class Triangle {
         System.out.println("Input side 3 : ");
         double side3 = scanner.nextDouble();
 
+
         try {
             Triangle triangle = new Triangle(side1, side2, side3);
             System.out.println("Triangle have 3 sides is : side 1 = "+ side1 + ", side2 = "+side2 +", side3 = " +side3 );

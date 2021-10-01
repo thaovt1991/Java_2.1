@@ -19,6 +19,48 @@ public class ReadAndWriteFileObject {
         }
     }
 
+    public static void writeToflieCSV(String path,List<Product> products){
+        FileWriter writer = null ;
+        try {
+            writer = new FileWriter(path);
+            writer.append("ID");
+            writer.append(",");
+            writer.append("NAME PRODUCT");
+            writer.append(",");
+            writer.append("COMPANY");
+            writer.append(",");
+            writer.append("PRICE");
+            writer.append(",");
+            writer.append("OTHER");
+            writer.append("\n");
+
+            for(Product product : products){
+                writer.append(String.valueOf(product.getId()));
+                writer.append(",");
+                writer.append(product.getNameProduct());
+                writer.append(",");
+                writer.append(product.getManufacturer());
+                writer.append(",");
+                writer.append(String.valueOf(product.getPrice()));
+                writer.append(",");
+                writer.append(product.getOtherDescription());
+                writer.append("\n");
+            }
+            System.out.println("Success !");
+        } catch (Exception e) {
+            System.out.println("Error in CsvFileWriter !!!");
+            e.printStackTrace();
+        } finally {
+            try {
+                writer.flush();
+                writer.close();
+            } catch (IOException e) {
+                System.out.println("Error while flushing/closing fileWriter !!!");
+                e.printStackTrace();
+            }
+        }
+    }
+
 
 
     public static List<Product> readToFile(String path) {
@@ -50,6 +92,8 @@ public class ReadAndWriteFileObject {
 
         String linkFileSave = "D:\\Java_2.1\\Modul02\\src\\week4\\io_byrari_seri\\ex_product_manager\\data\\product.txt";
         writeFile(linkFileSave,products);
+        String linkFileSaveCSV = "D:\\Java_2.1\\Modul02\\src\\week4\\io_byrari_seri\\ex_product_manager\\data\\product.csv";
+        writeToflieCSV(linkFileSaveCSV,products);
 
         List<Product> listProduct = readToFile(linkFileSave) ;
         for(Product p : listProduct){
