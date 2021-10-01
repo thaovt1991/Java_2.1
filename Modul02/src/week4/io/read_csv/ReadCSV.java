@@ -20,13 +20,13 @@ public class ReadCSV {
         try{
             File file = new File(fileName);
             if(!file.exists()){
-                writeCsvFile(fileName);
-//                try {
-//                    FileWriter  writer = new FileWriter(fileName);
-//                    System.out.println("Success");
-//                }catch (Exception e){
-//                    e.getStackTrace();
-//                }
+//                writeCsvFile(fileName);
+                try {
+                    FileWriter  writer = new FileWriter(fileName);
+                    System.out.println("Success");
+                }catch (Exception e){
+                    e.getStackTrace();
+                }
 
             }
             BufferedReader br = new BufferedReader(new FileReader(file));

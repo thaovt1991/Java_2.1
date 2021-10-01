@@ -21,15 +21,15 @@ public class Triangle {
     }
 
     private class IllegalTriangleException extends Exception {
-        private double sideOne;
-        private double sideTwo;
-        private double sideThree;
+//        private double sideOne;
+//        private double sideTwo;
+//        private double sideThree;
 
         public IllegalTriangleException(double side1, double side2, double side3) {
             super("Illegal sides " + side1 + ",   " + side2 + ",   " + side3);
-            this.sideOne = side1;
-            this.sideTwo = side2;
-            this.sideThree = side3;
+//            this.sideOne = side1;
+//            this.sideTwo = side2;
+//            this.sideThree = side3;
         }
     }
 
