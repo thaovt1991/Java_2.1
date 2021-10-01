@@ -8,18 +8,21 @@ public class NumberGenerator implements Runnable {
     }
    @Override
     public void run() {
-        int i = this.num;
+
        try {
+           int i = this.num;
            int j= 1;
            System.out.println("10 so sau "+ num + " la :");
            while (i< num+10){
                 System.out.println(j +" : " + i );
                 j++;
+                i++;
                 Thread.sleep(500);
             }
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             System.out.println("number max size");
         }
-        System.out.println("Complete !");
+       System.out.println("Complete !");
+
     }
 }
