@@ -18,8 +18,8 @@ public class NumberGenerator implements Runnable {
                 Thread.sleep(500);
             }
         } catch (InterruptedException e) {
-            System.out.println("number");
+            System.out.println("number max size");
         }
-        System.out.println("my thread run is over");
+        System.out.println("Complete !");
     }
 }
