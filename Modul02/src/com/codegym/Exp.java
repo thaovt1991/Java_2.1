@@ -11,21 +11,29 @@ import java.io.IOException;
 ////        System.out.println(a * a );
 //    }
 public class Exp {
-
-        public static void main(String [] args) {
-            try         {
-                badMethod();
-                System.out.print("A");
-            }  catch (Exception ex)  {
-                System.out.print("B");
-            } finally {
-                System.out.print("C");
-            }
-            System.out.print("D");
-        }
-        public static void badMethod(){
-            throw new RuntimeException();
+    //public class Test {
+        public static void main(String[] args) {
+            String x = "abc";
+            String y = "abc";
+            x.concat(y);
+            System.out.print(x);
         }
     }
+
+//        public static void main(String [] args) {
+//            try         {
+//                badMethod();
+//                System.out.print("A");
+//            }  catch (Exception ex)  {
+//                System.out.print("B");
+//            } finally {
+//                System.out.print("C");
+//            }
+//            System.out.print("D");
+//        }
+//        public static void badMethod(){
+//            throw new RuntimeException();
+//        }
+
 
 
