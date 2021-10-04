@@ -35,7 +35,7 @@ public class LazyPrimeFactorization implements Runnable{
                         count ++;
                         str += i + "  ";
                         System.out.println( "LazyPrimeFactorization "+count +" :" +i);
-                        Thread.sleep(100);
+                      //  Thread.sleep(100);
                     }
                     i++;
                 }

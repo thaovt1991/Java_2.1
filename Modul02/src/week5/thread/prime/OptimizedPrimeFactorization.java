@@ -36,7 +36,7 @@ public class OptimizedPrimeFactorization implements Runnable {
                         str += i + "  ";
                         System.out.println("OptimizedPrimeFactorization " +count +" :" +i);
 
-                        Thread.sleep(100);
+                       // Thread.sleep(100);
                     }
                     i++;
                 }
