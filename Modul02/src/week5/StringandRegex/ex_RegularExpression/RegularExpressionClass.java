@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class RegularExpressionClass {
 
-    public static final String CLASS_REGEX ="[C|A|P]+[0-9{4}]+[G|H|I|K|L|M]$";
+    public static final String CLASS_REGEX ="[C|A|P]+\\d{4}+[G|H|I|K|L|M]$";
 
     public RegularExpressionClass(){
     }
