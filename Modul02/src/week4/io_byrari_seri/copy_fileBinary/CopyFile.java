@@ -3,47 +3,87 @@ package week4.io_byrari_seri.copy_fileBinary;
 import week4.io_byrari_seri.ex_product_manager.Product;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CopyFile {
-    public List<Object> readFile(String path){
-        List <Object> obj = new ArrayList<>() ;
-        try{
+public class CopyFile implements Serializable{
+    public List<Object> readFile(String path) {
+        List<Object> obj = new ArrayList<>();
+        try {
             FileInputStream fis = new FileInputStream(path);
             ObjectInputStream ois = new ObjectInputStream(fis);
-            obj = (List<Object>)ois.readObject() ;
+            obj = (List<Object>) ois.readObject();
             ois.close();
             fis.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return obj ;
+        return obj;
     }
-    public void writeFile(String path, List obj){
-        ObjectOutputStream writer = null ;
-        try{
-            FileOutputStream  fos = new FileOutputStream(path);
+
+    public void writeFile(String path, List obj) {
+        ObjectOutputStream writer = null;
+        try {
+            FileOutputStream fos = new FileOutputStream(path);
             writer = new ObjectOutputStream(fos);
             writer.writeObject(obj);
             writer.close();
             fos.close();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.getStackTrace();
         }
     }
 
+    private static void copyFileUsingJava7Files(File source, File dest) throws IOException {
+        Files.copy(source.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+    }
+    private static void copyFileUsingStream(File source, File dest) throws IOException {
+        InputStream is = null;
+        OutputStream os = null;
+        try {
+            is = new FileInputStream(source);
+            os = new FileOutputStream(dest);
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = is.read(buffer)) > 0) {
+                os.write(buffer, 0, length);
+            }
+        } finally {
+            is.close();
+            os.close();
+        }
+    }
     public static void main(String[] args) {
-        CopyFile copyFile = new CopyFile();
-         String linkcop = "D:\\Java_2.1\\Modul02\\src\\week4\\io_byrari_seri\\ex_product_manager\\data\\product.txt";
-         String linkParse = "D:\\Java_2.1\\Modul02\\src\\week4\\io_byrari_seri\\copy_fileBinary\\data\\product_copy.txt";
-//    try {
-        List list= new ArrayList();
-      copyFile.writeFile(linkParse,list);
-        System.out.println("Suscess");
-//     }catch (Exception e){
-//        System.out.println("File not exist !");
-//     }catch (IOException e){
-//        e.getStackTrace();
+//        CopyFile copyFile = new CopyFile();
+        String linkcop = "D:\\Java_2.1\\Modul02\\src\\week4\\io_byrari_seri\\exp_Birary\\data\\file.txt";
+        String linkParse = "D:\\Java_2.1\\Modul02\\src\\week4\\io_byrari_seri\\copy_fileBinary\\data\\f_copy.txt";
+
+          File sourceFile =null;
+          File destFile = null;
+
+        sourceFile = new File(linkcop);
+        try {
+            destFile = new File(linkParse);
+             if (!destFile.exists()) {
+                FileWriter writer = new FileWriter(linkParse);
+            // writer.flush();
+             writer.close();
+             }
+        }catch (Exception e){
+            e.getStackTrace() ;
+        }
+
+        destFile = new File(linkParse);
+
+        try {
+            copyFileUsingJava7Files(sourceFile, destFile);
+            //copyFileUsingStream(sourceFile, destFile);
+            System.out.printf("Copy completed");
+        } catch (IOException ioe) {
+            System.out.printf("Can't copy that file");
+            System.out.printf(ioe.getMessage());
+        }
     }
 }
